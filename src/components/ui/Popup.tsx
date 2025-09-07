@@ -19,7 +19,6 @@ export const Popup: React.FC<PopupProps> = ({
   isOpen,
   onClose,
   children,
-  title,
   className
 }) => {
   const [isMounted, setIsMounted] = useState(false);

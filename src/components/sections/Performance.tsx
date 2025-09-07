@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { GlassPanel, ButtonOutline, FillPanel, Popup } from '@/components/ui';
-import { Users, Eye, ThumbsUp, MessagesSquare, CircleDollarSign, TrendingUp, Target, Zap, FileText, ExternalLink, Facebook } from 'lucide-react';
+import { Users, Eye, ThumbsUp, MessagesSquare, CircleDollarSign, TrendingUp, Target, Zap, FileText, ExternalLink} from 'lucide-react';
 import { PerformancePopup } from './popup/PerformancePopup';
 
 interface ProjectItem {
