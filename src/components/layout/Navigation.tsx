@@ -37,8 +37,12 @@ export const Navigation: React.FC = () => {
               className="flex items-center space-x-3"
             >
               {/* Circular Logo */}
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold text-sm">
-                NMQ
+              <div className="w-10 h-10 rounded-full flex items-center justify-center">
+                <img 
+                  src="/favicon.png" 
+                  alt="Nguyen Minh Quang Logo" 
+                  className="w-full h-full object-contain rounded-full"
+                />
               </div>
               {/* Portfolio Title */}
               <div className="font-serif text-white text-xl">
