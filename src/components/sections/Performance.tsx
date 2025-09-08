@@ -196,7 +196,7 @@ const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: Projec
 
       {/* Row 3: Contributions */}
       {project.contributions && project.contributions.length > 0 && (
-        <div className="flex-1 flex flex-col justify-center mb-6">
+        <div className="flex-1 flex flex-col justify-center mb-3">
           <h4 className="text-sm font-semibold text-white mb-3">
             My contribution:
           </h4>

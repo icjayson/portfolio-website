@@ -169,7 +169,7 @@ const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: Projec
       )}
 
       {/* Row 3: Contributions */}
-      <div className="flex-1 mb-6">
+      <div className="flex-1 mb-3">
         <h4 className="text-sm font-semibold text-white mb-1">
           My contribution:
         </h4>

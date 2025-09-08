@@ -156,7 +156,7 @@ export const Home: React.FC = () => {
               {/* Main card */}
               <motion.div
                 className="relative w-[300px] h-[400px] bg-gray-300 rounded-2xl shadow-2xl"
-                whileHover={{ scale: 1.02, rotate: 1 }}
+                whileHover={{ scale: 1.05, rotate: 1 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 {/* Card content with image */}

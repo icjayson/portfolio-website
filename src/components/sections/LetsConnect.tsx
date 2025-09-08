@@ -209,7 +209,7 @@ export const LetsConnect: React.FC = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <GradientPanel className="px-8 py-4 rounded-2xl">
+              <GradientPanel className="px-8 py-4 rounded-2xl hover:scale-[1.03] transition-all duration-300">
                 <div className="text-center">
                   <p className="text-lg text-gray-300 leading-relaxed italic">
                     &quot;If there are any skills or requirements you haven&#39;t seen here, it doesn&#39;t mean I don&#39;t know about it. I just haven&#39;t had the opportunity to do it and show it perfectly. Let me do it!&quot;

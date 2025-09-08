@@ -7,8 +7,8 @@ import { ButtonFill } from '@/components/ui';
 
 const navItems = [
   { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Experience', href: '#experience' }
+  { label: 'About Me', href: '#about' },
+  { label: 'Work Experience', href: '#experience' }
 ];
 
 export const Navigation: React.FC = () => {

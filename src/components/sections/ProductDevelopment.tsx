@@ -149,7 +149,7 @@ const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: Projec
       </div>
 
       {/* Row 2 & 3: Type Badges and Contributions */}
-      <div className="flex-1 mb-6">
+      <div className="flex-1 mb-3">
         {Array.isArray(project.typeBadge) && Array.isArray(project.contributions[0]) ? (
           // 2-column layout: each column has typeBadge + contribution section
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

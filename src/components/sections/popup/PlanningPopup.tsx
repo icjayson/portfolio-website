@@ -204,7 +204,7 @@ export const PlanningPopup: React.FC<PlanningPopupProps> = ({ project }) => {
               <img 
                 src={imageUrl} 
                 alt={`LAONMEDI project image ${index + 1}`}
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto object-cover"
               />
             </div>
           ))}
@@ -222,7 +222,7 @@ export const PlanningPopup: React.FC<PlanningPopupProps> = ({ project }) => {
               <img 
                 src={imageUrl} 
                 alt={`SUKI project image ${index + 1}`}
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto object-cover"
               />
             </div>
           ))}
@@ -238,7 +238,7 @@ export const PlanningPopup: React.FC<PlanningPopupProps> = ({ project }) => {
               <img 
                 src={imageUrl} 
                 alt={`KISSHU project image ${index + 1}`}
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto object-cover"
               />
             </div>
           ))}
@@ -252,7 +252,7 @@ export const PlanningPopup: React.FC<PlanningPopupProps> = ({ project }) => {
               <img 
                 src={imageUrl} 
                 alt={`Vincom project image ${index + 1}`}
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto object-cover"
               />
             </div>
           ))}
@@ -266,7 +266,7 @@ export const PlanningPopup: React.FC<PlanningPopupProps> = ({ project }) => {
               <img 
                 src={imageUrl} 
                 alt={`Dong Luc Sport project image ${index + 1}`}
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto object-cover"
               />
             </div>
           ))}
@@ -282,7 +282,7 @@ export const PlanningPopup: React.FC<PlanningPopupProps> = ({ project }) => {
               <img 
                 src={imageUrl} 
                 alt={`TON Degen project image ${index + 1}`}
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto object-cover"
               />
             </div>
           ))}
