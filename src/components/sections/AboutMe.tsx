@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { GlassPanel, FillPanel, GradientPanel } from '@/components/ui';
-import { Sparkles, Trophy, GraduationCap, Phone, Mail, CircleStar, Medal,  Linkedin, ChevronDown, Figma } from 'lucide-react';
+import { Sparkles, Trophy, GraduationCap, Phone, Mail, CircleStar, Medal,  Linkedin, ChevronDown} from 'lucide-react';
 
 export const AboutMe: React.FC = () => {
   // Parallax effect state
