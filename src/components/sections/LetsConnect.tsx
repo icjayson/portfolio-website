@@ -439,7 +439,7 @@ export const LetsConnect: React.FC = () => {
                         }`}
                       >
                         <MessageSquare className="w-4 h-4 inline mr-2" />
-                        Project Details
+                        Details
                       </label>
                     </div>
                     
