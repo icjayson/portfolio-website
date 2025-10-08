@@ -48,7 +48,7 @@ export const AboutMe: React.FC = () => {
         'Design UI, build and deploy a launching-campaign landing page using Figma, Cursor AI and Vercel']
     },
     {
-      role: 'Marketing Intern',
+      role: 'Marketing Associate',
       company: 'EVG Cloud',
       subtext: 'Role: Marketing Team Lead',
       skills: ['Planning', 'SEO', 'Copywriting'],
