@@ -58,8 +58,50 @@ export const WorkExperience: React.FC = () => {
     }
   ];
 
+  // Helper: parse current hash for tab id like #experience?tab=copywriting
+  const getTabFromHash = (): string | null => {
+    if (typeof window === 'undefined') return null;
+    const { hash } = window.location;
+    if (!hash || !hash.startsWith('#experience')) return null;
+    const queryIndex = hash.indexOf('?');
+    if (queryIndex === -1) return null;
+    const queryString = hash.substring(queryIndex + 1);
+    const params = new URLSearchParams(queryString);
+    const tab = params.get('tab');
+    if (!tab) return null;
+    const validIds = new Set(tabs.map(t => t.id));
+    return validIds.has(tab) ? tab : null;
+  };
+
+  // Initialize active tab from hash on mount
+  useEffect(() => {
+    const initial = getTabFromHash();
+    if (initial) {
+      setActiveTab(initial);
+    } else {
+      setActiveTab('planning');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Listen for hash changes to sync active tab
+  useEffect(() => {
+    const onHashChange = () => {
+      const next = getTabFromHash();
+      if (next && next !== activeTab) {
+        setActiveTab(next);
+      }
+    };
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, [activeTab]);
+
   const handleTabChange = (tabId: string) => {
     setActiveTab(tabId);
+    if (typeof window !== 'undefined') {
+      const nextHash = `#experience?tab=${tabId}`;
+      window.history.replaceState(null, '', nextHash);
+    }
   };
 
   const getCurrentComponent = () => {
@@ -67,7 +109,7 @@ export const WorkExperience: React.FC = () => {
     return activeTabData?.component || Planning;
   };
   return (
-    <section id="experience" className="section-padding bg-transparent relative">
+    <section className="section-padding bg-transparent relative">
       {/* Gradient dark background with subtle texture overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900/20 via-black/40 to-gray-900/20"></div>
       <div className="absolute inset-0 opacity-30">

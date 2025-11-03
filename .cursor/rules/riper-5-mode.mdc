@@ -1,5 +1,4 @@
 ---
-trigger: always_on
 alwaysApply: true
 ---
 RIPER-5 MODE: STRICT OPERATIONAL PROTOCOL
