@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { FillPanel } from '@/components/ui';
-import { Users, Eye, ThumbsUp, MessageSquare, DollarSign, TrendingUp, Target, Zap, FileText, Facebook } from 'lucide-react';
+import { Users, Eye, ThumbsUp, MessageSquare, MessagesSquare, DollarSign, CircleDollarSign, TrendingUp, Target, Zap, FileText, Facebook } from 'lucide-react';
 
 interface ProjectItem {
   id: number;
@@ -35,7 +35,9 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
       case "Eye": return <Eye className="w-4 h-4" />;
       case "ThumbsUp": return <ThumbsUp className="w-4 h-4" />;
       case "MessageSquare": return <MessageSquare className="w-4 h-4" />;
+      case "MessagesSquare": return <MessagesSquare className="w-4 h-4" />;
       case "DollarSign": return <DollarSign className="w-4 h-4" />;
+      case "CircleDollarSign": return <CircleDollarSign className="w-4 h-4" />;
       case "Target": return <Target className="w-4 h-4" />;
       case "Zap": return <Zap className="w-4 h-4" />;
       case "FileText": return <FileText className="w-4 h-4" />;
@@ -57,7 +59,7 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
             />
           ) : (
             <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
-              <span className="text-white font-bold text-sm">
+              <span className="text-black font-bold text-sm">
                 {project.name.substring(0, 2)}
               </span>
             </div>
@@ -69,20 +71,20 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
                 target="_blank" 
                 rel="noopener noreferrer"
                 className={`text-xl font-bold hover:opacity-80 transition-colors duration-300 block ${
-                  project.nameColor || 'text-white'
+                  project.nameColor || 'text-black'
                 }`}
               >
                 {project.name}
               </a>
             ) : (
               <h3 className={`text-xl font-bold ${
-                project.nameColor || 'text-white'
+                project.nameColor || 'text-black'
               }`}>
                 {project.name}
               </h3>
             )}
             {project.subtext && (
-              <p className="text-sm text-gray-400 mt-1 truncate">
+              <p className="text-sm text-gray-600 mt-1 truncate">
                 {project.subtext}
               </p>
             )}
@@ -98,18 +100,25 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
             {project.typeBadge}
           </span>
           {project.period && (
-            <span className="text-xs text-gray-400 italic">
+            <span className="text-xs text-gray-600 italic">
               {project.period}
             </span>
           )}
         </div>
       </div>
 
-      {/* Context Section - Only for Tạp Hoá Decor */}
+      {/* Context Section */}
+      {project.name === 'Zalo Games' && (
+        <div className="rounded-lg">
+          <p className="text-gray-700 text-sm leading-relaxed">
+            <span className="text-sm font-semibold text-black">Context:</span> Zalo Games is a game publisher mainly operating games within the Zalo Mini App ecosystem, focusing on game launch, UA, live operations and monetization growth.
+          </p>
+        </div>
+      )}
       {project.name === 'Tạp Hoá Decor' && (
         <div className="rounded-lg">
-          <p className="text-gray-300 text-sm leading-relaxed">
-          <span className="text-sm font-semibold text-white">Context:</span> My personal business project with limited ads budget.
+          <p className="text-gray-700 text-sm leading-relaxed">
+          <span className="text-sm font-semibold text-black">Context:</span> My personal business project with limited ads budget.
           </p>
         </div>
       )}
@@ -117,7 +126,7 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
       {/* Results Section */}
       {project.results && project.results.length > 0 && (
         <div>
-          <h4 className="text-lg font-semibold text-white mb-4 text-center">
+          <h4 className="text-lg font-semibold text-black mb-4 text-center">
             Result
           </h4>
           <div className={`grid gap-4 ${
@@ -143,20 +152,78 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
       )}
 
       {/* Contributions and Images - Conditional Layouts */}
-      {project.name === 'Phen Marketing' ? (
+      {project.name === 'Zalo Games' ? (
+        <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <h4 className="text-sm font-semibold text-black mb-1">
+                Funnel ownership:
+              </h4>
+              <ul className="space-y-0">
+                {project.contributions.map((contribution, index) => (
+                  <li key={index} className="text-gray-700 text-sm flex items-start gap-2">
+                    <span className="text-primary mt-1">•</span>
+                    <span>{contribution}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-black mb-1">
+                Monitored KPIs:
+              </h4>
+              <ul className="space-y-0">
+                {[
+                  'CPI, CTR and traffic quality for user acquisition efficiency',
+                  'NRU, PU, PR, RR and revenue for funnel and monetization health',
+                  'Daily post-release reports to identify bottlenecks and optimization actions'
+                ].map((item, index) => (
+                  <li key={index} className="text-gray-700 text-sm flex items-start gap-2">
+                    <span className="text-primary mt-1">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold text-black mb-3">
+              Game launch milestones:
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                {
+                  game: 'Ma Kiem',
+                  result: '500K+ NRU and 2B+ VND revenue in the 1st month; 5B+ VND revenue after 3 months'
+                },
+                {
+                  game: 'ZA War: Survival VN',
+                  result: '800K+ NRU and 1.8B+ VND revenue in the 1st month'
+                }
+              ].map((item, index) => (
+                <FillPanel key={index} className="rounded-lg p-4">
+                  <div className="text-base font-bold text-black mb-2">{item.game}</div>
+                  <div className="text-sm text-white/85">{item.result}</div>
+                </FillPanel>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : project.name === 'Phen Marketing' ? (
         // Card 1: Add contributions + 1 large image
         <div>
           <div>
             <ul className="space-y-0">
-              <li className="text-gray-300 text-sm flex items-start gap-2">
-                <span className="text-sm font-semibold text-white">My contribution:</span>
+              <li className="text-gray-700 text-sm flex items-start gap-2">
+                <span className="text-sm font-semibold text-black">My contribution:</span>
                 <span>Manage Facebook Ads tool, aiming at increasing messages & lead CR</span>
               </li>
             </ul>
           </div>
           {/* Large Image */}
           <div className="mt-6">
-          <h4 className="text-sm font-semibold text-white mb-3">
+          <h4 className="text-sm font-semibold text-black mb-3">
               Showcase of my work:
             </h4>
             <div className="w-full rounded-lg overflow-hidden">
@@ -165,7 +232,7 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
               ].map((image, index) => (
                 <div key={index} className="space-y-2">
                   <div className="w-full rounded-lg overflow-hidden">
-                  <p className="text-xs text-gray-400 text-center mb-2">{image.alt}</p>
+                  <p className="text-xs text-gray-600 text-center mb-2">{image.alt}</p>
                     <img 
                       src={image.url}
                       alt={image.alt}
@@ -181,15 +248,15 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
         // Card 2: Add contributions + 1 large image
         <div>
           <div>
-            <h4 className="text-sm font-semibold text-white mb-1">
+            <h4 className="text-sm font-semibold text-black mb-1">
               My contribution:
             </h4>
             <ul className="space-y-0">
-              <li className="text-gray-300 text-sm flex items-start gap-2">
+              <li className="text-gray-700 text-sm flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
                 <span>Manage Facebook Ads tool, aiming at increasing messages & lead CR</span>
               </li>
-              <li className="text-gray-300 text-sm flex items-start gap-2">
+              <li className="text-gray-700 text-sm flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
                 <span>Execute A/B testing based on locations and content formats to optimize CPL</span>
               </li>
@@ -197,7 +264,7 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
           </div>
           {/* Large Image */}
           <div className="mt-6">
-            <h4 className="text-sm font-semibold text-white mb-3">
+            <h4 className="text-sm font-semibold text-black mb-3">
               Showcase of my work:
             </h4>
             <div className="w-full rounded-lg overflow-hidden">
@@ -206,7 +273,7 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
               ].map((image, index) => (
                 <div key={index} className="space-y-2">
                   <div className="w-full rounded-lg overflow-hidden">
-                  <p className="text-xs text-gray-400 text-center mb-2">{image.alt}</p>
+                  <p className="text-xs text-gray-600 text-center mb-2">{image.alt}</p>
                     <img 
                       src={image.url}
                       alt={image.alt}
@@ -222,12 +289,12 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
         // Card 3: Keep existing contributions + 3 images in 3x1 grid
         <div>
           <div>
-            <h4 className="text-sm font-semibold text-white mb-1">
+            <h4 className="text-sm font-semibold text-black mb-1">
               My contribution:
             </h4>
             <ul className="space-y-0">
               {project.contributions.map((contribution, index) => (
-                <li key={index} className="text-gray-300 text-sm flex items-start gap-2">
+                <li key={index} className="text-gray-700 text-sm flex items-start gap-2">
                   <span className="text-primary mt-1">•</span>
                   <span>{contribution}</span>
                 </li>
@@ -236,7 +303,7 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
           </div>
           {/* 3 Images in 3x1 Grid */}
           <div className="mt-6">
-            <h4 className="text-sm font-semibold text-white mb-3">
+            <h4 className="text-sm font-semibold text-black mb-3">
               Showcase of my work:
             </h4>
             <div className="grid grid-cols-3 gap-4">
@@ -247,7 +314,7 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
               ].map((image, index) => (
                 <div key={index} className="space-y-2">
                   <div className="w-full rounded-lg overflow-hidden">
-                  <p className="text-xs text-gray-400 text-center mb-2">{image.alt}</p>
+                  <p className="text-xs text-gray-600 text-center mb-2">{image.alt}</p>
                     <img 
                       src={image.url}
                       alt={image.alt}
@@ -263,12 +330,12 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
         // Fallback for any other projects
         project.contributions && project.contributions.length > 0 && (
           <div>
-            <h4 className="text-sm font-semibold text-white mb-3">
+            <h4 className="text-sm font-semibold text-black mb-3">
               My contribution:
             </h4>
             <ul className="space-y-0">
               {project.contributions.map((contribution, index) => (
-                <li key={index} className="text-gray-300 text-sm flex items-start gap-2">
+                <li key={index} className="text-gray-700 text-sm flex items-start gap-2">
                   <span className="text-primary mt-1">•</span>
                   <span>{contribution}</span>
                 </li>

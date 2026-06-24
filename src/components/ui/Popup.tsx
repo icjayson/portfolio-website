@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
-import { GlassPanel } from './GlassPanel';
 import { cn } from '@/lib/utils';
 import { createPortal } from 'react-dom';
 
@@ -52,8 +51,8 @@ export const Popup: React.FC<PopupProps> = ({
   };
 
   const containerVariants = {
-    hidden: { scale: 0.8, opacity: 0 },
-    visible: { scale: 1, opacity: 1 }
+    hidden: { scale: 0.92, opacity: 0, y: 24 },
+    visible: { scale: 1, opacity: 1, y: 0 }
   };
 
   if (!isMounted) return null;
@@ -84,18 +83,18 @@ export const Popup: React.FC<PopupProps> = ({
               initial="hidden"
               animate="visible"
               exit="hidden"
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              transition={{ type: 'spring', stiffness: 260, damping: 24 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <GlassPanel className="rounded-2xl overflow-hidden h-full flex flex-col min-h-0">
+              <div className="popup-panel backdrop-blur-sm rounded-2xl overflow-hidden h-full flex flex-col min-h-0">
                 {/* Close Button - Top Right */}
                 <div className="flex justify-end p-4">
                   <button
                     onClick={onClose}
-                    className="p-2 rounded-lg hover:bg-white/10 transition-colors duration-200"
+                    className="p-2 rounded-lg hover:bg-black/10 transition-colors duration-200"
                     aria-label="Close popup"
                   >
-                    <X className="w-5 h-5 text-white" />
+                    <X className="w-5 h-5 text-black" />
                   </button>
                 </div>
                 
@@ -103,7 +102,7 @@ export const Popup: React.FC<PopupProps> = ({
                 <div className="flex-1 overflow-y-auto px-6 pb-6 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent hover:scrollbar-thumb-white/30 popup-scrollbar">
                   {children}
                 </div>
-              </GlassPanel>
+              </div>
             </motion.div>
           </motion.div>
         )}

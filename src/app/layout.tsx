@@ -10,20 +10,20 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Nguyen Minh Quang - Portfolio",
-  description: "Strategic Planning • Product Development • Performance Marketing",
-  keywords: "performance marketing, strategic planning, product development, marketing specialist, Vietnam",
+  title: "Nguyen Minh Quang - Product Growth Portfolio",
+  description: "Product Growth • Product Development • User Intelligence",
+  keywords: "product growth, product development, user intelligence, performance marketing, strategic planning, Vietnam",
   authors: [{ name: "Nguyen Minh Quang" }],
   openGraph: {
-    title: "Nguyen Minh Quang - Performance Marketing Specialist",
-    description: "Strategic Planning • Product Development • Cross-Functional Marketing Expert",
+    title: "Nguyen Minh Quang - Product Growth Portfolio",
+    description: "Product Growth • Product Development • User Intelligence",
     type: "website",
     locale: "en_US"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nguyen Minh Quang - Performance Marketing Specialist",
-    description: "Strategic Planning • Product Development • Cross-Functional Marketing Expert"
+    title: "Nguyen Minh Quang - Product Growth Portfolio",
+    description: "Product Growth • Product Development • User Intelligence"
   }
 };
 
@@ -35,11 +35,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" type="image/x-icon" href="/favicon1.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
-        <link rel="manifest" href="/favicon1.ico" />
       </head>
       <body className={`${inter.variable} font-body antialiased`}>
         {children}

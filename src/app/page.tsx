@@ -11,44 +11,56 @@ import { LetsConnect } from '../components/sections/LetsConnect';
 export default function Page() {
   return (
     <>
+      {/* White layer behind the video */}
+      <div className="fixed inset-0 bg-white pointer-events-none -z-20" />
+      {/* Fixed background video */}
+      <video
+        className="fixed inset-x-0 top-[400px] w-full h-full object-cover pointer-events-none -z-10"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        disableRemotePlayback
+        webkit-playsinline="true"
+        x5-playsinline="true"
+      >
+        <source
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_083109_283f3553-e28f-428b-a723-d639c617eb2b.mp4"
+          type="video/mp4"
+        />
+      </video>
+      {/* Overlay above the video */}
+      <div className="fixed inset-0 bg-white/40 pointer-events-none -z-10" />
+
       <Navigation />
-      <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900">
+      <div className="bg-transparent">
         <main>
           <section id="home">
             <Home />
           </section>
-          
+
           <section id="hero-banner">
             <HeroBanner />
           </section>
-          
+
           <section id="about">
             <AboutMe />
           </section>
-          
+
           <section id="experience">
             <WorkExperience />
           </section>
-          
+
           <section id="connect">
             <LetsConnect />
           </section>
         </main>
-        
-        {/* Full-width image section - Add your image here */}
-        <div className="w-full">
-            <img 
-              src="/image-footer.png" 
-              alt="Footer image" 
-              className="w-full h-auto object-cover"
-          />
-        </div>
-        
         {/* Copyright section */}
-        <div className="w-full bg-black py-4">
+        <div className="w-full border-t border-black/20 py-4">
           <div className="text-center">
-            <p className="text-white text-sm font-inter">
-              Copyright © 2025 Nguyen Minh Quang. All rights reserved.
+            <p className="text-black text-sm font-inter">
+              Copyright © 2026 Nguyen Minh Quang. All rights reserved.
             </p>
           </div>
         </div>

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Target, BarChart3, PenTool, Users } from 'lucide-react';
+import { Target, BarChart3, PenTool, Users } from 'lucide-react';
 import { FillPanel } from '@/components/ui';
 import { Planning } from './Planning';
 import { ProductDevelopment } from './ProductDevelopment';
@@ -17,32 +17,20 @@ interface TabItem {
 }
 
 export const WorkExperience: React.FC = () => {
-  // Parallax effect state
-  const [parallaxOffset, setParallaxOffset] = useState(0);
-  const [activeTab, setActiveTab] = useState('planning');
+  const [activeTab, setActiveTab] = useState('product-development');
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const parallaxSpeed = 0.5;
-      setParallaxOffset(scrollY * parallaxSpeed);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
   const tabs: TabItem[] = [
-    {
-      id: 'planning',
-      name: 'Planning',
-      icon: Target,
-      component: Planning
-    },
     {
       id: 'product-development',
       name: 'Product Development',
       icon: Users,
       component: ProductDevelopment
+    },
+    {
+      id: 'planning',
+      name: 'Planning',
+      icon: Target,
+      component: Planning
     },
     {
       id: 'performance',
@@ -79,7 +67,7 @@ export const WorkExperience: React.FC = () => {
     if (initial) {
       setActiveTab(initial);
     } else {
-      setActiveTab('planning');
+      setActiveTab('product-development');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -110,13 +98,6 @@ export const WorkExperience: React.FC = () => {
   };
   return (
     <section className="section-padding bg-transparent relative">
-      {/* Gradient dark background with subtle texture overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900/20 via-black/40 to-gray-900/20"></div>
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(19,134,81,0.1),transparent_70%)]" 
-             style={{ transform: `translateY(${parallaxOffset * 0.3}px)` }}></div>
-      </div>
-      
       <div className="max-w-[1400px] mx-auto px-8 relative z-10">
         {/* Header Section with Sparkles */}
         <motion.div
@@ -127,9 +108,7 @@ export const WorkExperience: React.FC = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold text-primary flex items-center justify-center gap-4 font-serif">
-          <Sparkles className="text-primary w-8 h-8 animate-pulse" />
-            <span>WORK EXPERIENCE</span>
-            <Sparkles className="text-primary w-8 h-8 animate-pulse" />
+            <span>Proof of Work</span>
           </h1>
         </motion.div>
         {/* Tab Navigation */}
@@ -140,10 +119,10 @@ export const WorkExperience: React.FC = () => {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <TabNavigation 
-            tabs={tabs} 
-            activeTab={activeTab} 
-            onTabChange={handleTabChange} 
+          <TabNavigation
+            tabs={tabs}
+            activeTab={activeTab}
+            onTabChange={handleTabChange}
           />
         </motion.div>
 
@@ -177,8 +156,8 @@ const TabNavigation: React.FC<{
               onClick={() => onTabChange(tab.id)}
               className={`
                 flex items-center gap-4 px-6 py-3 rounded-full text-base font-medium transition-all duration-300
-                ${activeTab === tab.id 
-                  ? 'bg-secondary text-white border border-white shadow-[inset_0_0_12px_4px_rgba(0,0,0,0.5),_0_1px_0_rgba(255,255,255,0.5)]' 
+                ${activeTab === tab.id
+                  ? 'bg-secondary text-white border border-white shadow-[inset_0_0_12px_4px_rgba(0,0,0,0.5),_0_1px_0_rgba(255,255,255,0.5)]'
                   : 'text-white/80 hover:text-white hover:bg-black/50 bg-transparent border-0'
                 }
               `}

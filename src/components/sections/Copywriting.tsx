@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { GlassPanel, ButtonOutline, FillPanel, Popup } from '@/components/ui';
+import { CardPanel, ButtonOutline, FillPanel, Popup, ProjectCover } from '@/components/ui';
 import { Users, Eye, ThumbsUp, MessageSquare, CircleDollarSign, Handshake, TrendingUp, Target, Zap, FileText, ExternalLink} from 'lucide-react';
 import { CopywritingPopup } from './popup/CopywritingPopup';
 
@@ -10,6 +10,7 @@ interface ProjectItem {
   id: number;
   name: string;
   logo?: string;
+  coverImage?: string;
   href?: string;
   subtext?: string;
   period?: string;
@@ -31,6 +32,7 @@ const copywritingProjects: ProjectItem[] = [
     id: 19,
     name: "TON Degen",
     logo: "tondegen-logo.jpg",
+    coverImage: "/copywriting-tondegen/1.png",
     href: "#",
     subtext: "A project of AnyAxis Labs",
     period: "03/2024 - 12/2024",
@@ -41,11 +43,11 @@ const copywritingProjects: ProjectItem[] = [
       { label: "Total Revenue", value: "$30,000+", icon: "CircleDollarSign" },
       { label: "Total Partners", value: "120+", icon: "Handshake" },
       { label: "New Followers", value: "80,000+", icon: "Users" },
-      { label: "Telegram members", value: "9,000+", icon: "Users" },
-      { label: "Total Impressions", value: "9,000,000+", icon: "Eye" }
+      { label: "Community members", value: "10,000+", icon: "Users" },
+      { label: "Total Impressions", value: "10,000,000+", icon: "Eye" }
     ],
     contributions: [
-      "Create content related to TON (The Open Network) and its ecosystem",
+      "Develop content strategy, track market trends and create daily content on X to drive reach and follower growth",
       "Reach and collaborate with projects within TON Ecosystem through promotional service packages"
     ]
   },
@@ -53,6 +55,7 @@ const copywritingProjects: ProjectItem[] = [
     id: 20,
     name: "Vincom",
     logo: "vincom-logo.webp",
+    coverImage: "/copywriting-vincom/1.png",
     href: "#",
     subtext: "Facebook",
     period: "06/2023 - 08/2023",
@@ -68,6 +71,7 @@ const copywritingProjects: ProjectItem[] = [
     id: 21,
     name: "VinFast",
     logo: "vinfast-logo.png",
+    coverImage: "/copywriting-vinfast/1.png",
     href: "#",
     subtext: "Facebook",
     period: "06/2023 - 07/2023",
@@ -83,6 +87,7 @@ const copywritingProjects: ProjectItem[] = [
     id: 22,
     name: "Xanh SM",
     logo: "xanhsm-logo.png",
+    coverImage: "/copywriting-xanhsm/1.png",
     href: "#",
     subtext: "Facebook",
     period: "05/2023 - 07/2023",
@@ -98,6 +103,7 @@ const copywritingProjects: ProjectItem[] = [
     id: 23,
     name: "Phen Marketing",
     logo: "phenmarketing-logo.png",
+    coverImage: "/copywriting-phenmarketing/1.png",
     href: "#",
     subtext: "Facebook",
     period: "12/2022 - 05/2023",
@@ -111,7 +117,7 @@ const copywritingProjects: ProjectItem[] = [
   }
 ];
 
-const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: ProjectItem) => void }> = ({ project, onViewMore }) => {
+const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: ProjectItem) => void; ratio?: '16/9' | '16/7' | '16/5' }> = ({ project, onViewMore, ratio = '16/7' }) => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case "Users": return <Users className="w-4 h-4" />;
@@ -129,64 +135,63 @@ const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: Projec
   };
 
   return (
-    <GlassPanel className="p-6 rounded-2xl h-full flex flex-col relative">
-      {/* Top Right: Type Badge and Period */}
-      <div className="absolute top-4 right-6 space-y-2 text-right">
-        <div>
-          <span className={`px-3 py-1 text-xs rounded-full border ${
-            project.badgeColor || 'bg-primary/20 text-primary border-primary/30'
-          }`}>
-            {project.typeBadge}
-          </span>
-        </div>
-        {project.period && (
-          <div>
-            <span className="text-xs text-gray-400 italic">
-              {project.period}
-            </span>
-          </div>
-        )}
-      </div>
+    <CardPanel className="group p-6 rounded-2xl h-full flex flex-col relative overflow-hidden">
+      {/* Cover image */}
+      <ProjectCover src={project.coverImage} name={project.name} ratio={ratio} />
 
-      {/* Row 1: Logo, Company Name, and Subtext */}
+      {/* Row 1: Logo, Company Name, Subtext, Type Badge and Period */}
       <div className="mb-6">
         <div className="flex items-start gap-3 mb-2">
           {project.logo ? (
-            <img 
-              src={project.logo} 
+            <img
+              src={project.logo}
               alt={`${project.name} logo`}
               className="w-12 h-12 rounded-full object-cover bg-white flex-shrink-0"
             />
           ) : (
             <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
-              <span className="text-white font-bold text-sm">
+              <span className="text-black font-bold text-sm">
                 {project.name.substring(0, 2)}
               </span>
             </div>
           )}
-          <div className="flex-1">
+          <div className="flex-1 min-w-0">
             {project.href ? (
-              <a 
-                href={project.href} 
-                target="_blank" 
+              <a
+                href={project.href}
+                target="_blank"
                 rel="noopener noreferrer"
                 className={`text-xl font-bold hover:opacity-80 transition-colors duration-300 block ${
-                  project.nameColor || 'text-white'
+                  project.nameColor || 'text-black'
                 }`}
               >
                 {project.name}
               </a>
             ) : (
               <h3 className={`text-xl font-bold ${
-                project.nameColor || 'text-white'
+                project.nameColor || 'text-black'
               }`}>
                 {project.name}
               </h3>
             )}
             {project.subtext && (
-              <p className="text-sm text-gray-400 mt-1">
+              <p className="text-sm text-gray-700 mt-1">
                 {project.subtext}
               </p>
+            )}
+          </div>
+          <div className="space-y-2 text-right flex-shrink-0">
+            <span className={`inline-block px-3 py-1 text-xs rounded-full border whitespace-nowrap ${
+              project.badgeColor || 'bg-primary/20 text-primary border-primary/30'
+            }`}>
+              {project.typeBadge}
+            </span>
+            {project.period && (
+              <div>
+                <span className="text-xs text-gray-700 italic whitespace-nowrap">
+                  {project.period}
+                </span>
+              </div>
             )}
           </div>
         </div>
@@ -195,12 +200,12 @@ const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: Projec
       {/* Row 2: Contributions */}
       {project.contributions && project.contributions.length > 0 && (
         <div className="flex-1 flex flex-col justify-center mb-3">
-          <h4 className="text-sm font-semibold text-white mb-1">
+          <h4 className="text-sm font-semibold text-black mb-1">
             My contribution:
           </h4>
           <ul className="space-y-0">
             {project.contributions.map((contribution, index) => (
-              <li key={index} className="text-gray-300 text-sm flex items-start gap-2">
+              <li key={index} className="text-black text-sm flex items-start gap-2">
                 <span className="text-primary mt-1 flex-shrink-0">•</span>
                 <span>{contribution}</span>
               </li>
@@ -212,7 +217,7 @@ const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: Projec
             {/* Row 3: Results Section */}
       {project.results && project.results.length > 0 && (
         <div className="flex-1 flex flex-col justify-center mb-6">
-          <h4 className="text-lg font-semibold text-white mb-4 text-center">
+          <h4 className="text-lg font-semibold text-black mb-4 text-center">
             Result
           </h4>
           <div className={`grid gap-4 ${
@@ -247,7 +252,7 @@ const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: Projec
           <ExternalLink className="w-4 h-4 flex-shrink-0" />
         </ButtonOutline>
       </div>
-    </GlassPanel>
+    </CardPanel>
   );
 };
 
@@ -265,29 +270,31 @@ export const Copywriting: React.FC = () => {
 
   return (
     <>
-      <div className="space-y-6">
-        {/* Row 1: First card full width */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Row 1: TON Degen spans 2 cols, Vincom 1 col; remaining cards fill row 2 */}
         <motion.div
+          className="md:col-span-2"
           initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          whileHover={{ y: -6 }}
           transition={{ duration: 0.5 }}
         >
-          <ProjectCard project={copywritingProjects[0]} onViewMore={openPopup} />
+          <ProjectCard project={copywritingProjects[0]} onViewMore={openPopup} ratio="16/7" />
         </motion.div>
 
-        {/* Rows 2-3: 2x2 grid layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {copywritingProjects.slice(1).map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
-            >
-              <ProjectCard project={project} onViewMore={openPopup} />
-            </motion.div>
-          ))}
-        </div>
+        {copywritingProjects.slice(1).map((project, index) => (
+          <motion.div
+            key={project.id}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            whileHover={{ y: -6 }}
+            transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
+          >
+            <ProjectCard project={project} onViewMore={openPopup} ratio="16/9" />
+          </motion.div>
+        ))}
       </div>
 
       <Popup

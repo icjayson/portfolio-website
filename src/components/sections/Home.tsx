@@ -14,7 +14,7 @@ const TypewriterText: React.FC<{ text: string; delay: number; duration: number }
     const timer = setTimeout(() => {
       let currentIndex = 0;
       const intervalDuration = (duration * 1000) / text.length;
-      
+
       const interval = setInterval(() => {
         if (currentIndex <= text.length) {
           setDisplayedText(text.slice(0, currentIndex));
@@ -59,14 +59,9 @@ export const Home: React.FC = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
-  
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-transparent">
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/50 via-black/80 to-gray-900/50"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(19,134,81,0.1),transparent_50%)]">
-      </div>
-      
       <div className="max-w-[1400px] mx-auto px-8 relative z-10">
         <div className="grid lg:grid-cols-4 gap-16 items-center">
           {/* Left Content */}
@@ -83,7 +78,7 @@ export const Home: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="text-lg md:text-xl text-gray-300 font-sans">
+              <div className="text-lg md:text-xl text-black font-sans">
                 Hi, I&#39;m
               </div>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-primary leading-tight italic">
@@ -93,28 +88,28 @@ export const Home: React.FC = () => {
 
             {/* Line 2: Skills with sparkles */}
             <motion.div
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-2 text-lg md:text-xl text-white whitespace-nowrap"
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-2 text-lg md:text-xl text-black whitespace-nowrap"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <span>Performance Marketing</span>
-              <Sparkles className="w-5 h-5 text-primary flex-shrink-0" />
-              <span>Strategic Planning</span>
-              <Sparkles className="w-5 h-5 text-primary flex-shrink-0" />
               <span>Product Development</span>
+              <Sparkles className="w-5 h-5 text-primary flex-shrink-0" />
+              <span>Product Growth</span>
+              <Sparkles className="w-5 h-5 text-primary flex-shrink-0" />
+              <span>User Intelligence</span>
             </motion.div>
 
             {/* Line 3: Quote with typewriter effect */}
             <motion.div
-              className="text-base md:text-lg text-gray-300 italic font-light max-w-full"
+              className="text-base md:text-lg text-black italic font-light max-w-full"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <div className="relative">
-                <TypewriterText 
-                  text="Being full-stack isn&#39;t about doing everything — it&#39;s about understanding enough to connect the dots where others can&#39;t."
+                <TypewriterText
+                  text="I connect market insight, user empathy and hands-on execution to create digital products with real user value"
                   delay={1}
                   duration={3}
                 />
@@ -122,7 +117,7 @@ export const Home: React.FC = () => {
             </motion.div>
 
             {/* Action buttons */}
-            <motion.div 
+            <motion.div
               className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -152,7 +147,7 @@ export const Home: React.FC = () => {
               <div className="absolute top-8 left-8 w-[300px] h-[400px] bg-primary/80 rounded-2xl blur-sm"></div>
               <div className="absolute top-4 left-4 w-[300px] h-[400px] bg-secondary/80 rounded-2xl blur-sm"></div>
 
-              
+
               {/* Main card */}
               <motion.div
                 className="relative w-[300px] h-[400px] bg-gray-300 rounded-2xl shadow-2xl"
@@ -161,9 +156,9 @@ export const Home: React.FC = () => {
               >
                 {/* Card content with image */}
                 <div className="w-full h-full rounded-2xl overflow-hidden">
-                  <img 
-                    src="/home-section.png" 
-                    alt="Portfolio image" 
+                  <img
+                    src="/home-section.png"
+                    alt="Portfolio image"
                     className="w-full h-full object-cover"
                   />
                 </div>

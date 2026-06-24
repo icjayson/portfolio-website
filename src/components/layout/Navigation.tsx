@@ -8,7 +8,7 @@ import { ButtonFill } from '@/components/ui';
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About Me', href: '#about' },
-  { label: 'Work Experience', href: '#experience' }
+  { label: 'Experience', href: '#experience' }
 ];
 
 export const Navigation: React.FC = () => {
@@ -62,7 +62,7 @@ export const Navigation: React.FC = () => {
   return (
     <>
       <motion.nav
-        className="fixed top-0 left-10 right-10 z-50 max-w-[1200px] mx-auto transition-all duration-300 mt-4 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-lg shadow-[inset_0_0_20px_0_rgba(255,255,255,0.2)]"
+        className="fixed top-0 left-10 right-10 z-50 max-w-[1200px] mx-auto transition-all duration-300 mt-4 bg-black/5 backdrop-blur-md border border-black/10 rounded-2xl shadow-lg shadow-[inset_0_0_20px_0_rgba(255,255,255,0.1)]"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
@@ -75,14 +75,14 @@ export const Navigation: React.FC = () => {
             >
               {/* Circular Logo */}
               <div className="w-10 h-10 rounded-full flex items-center justify-center">
-                <img 
-                  src="/favicon.png" 
-                  alt="Nguyen Minh Quang Logo" 
+                <img
+                  src="/favicon.png"
+                  alt="Nguyen Minh Quang Logo"
                   className="w-full h-full object-contain rounded-full"
                 />
               </div>
               {/* Portfolio Title */}
-              <div className="font-serif text-white text-xl">
+              <div className="font-serif text-black text-xl">
                 <span className="hidden lg:inline">Nguyen Minh Quang&#39;s Portfolio</span>
                 <span className="lg:hidden">Nguyen Minh Quang&#39;s Portfolio</span>
               </div>
@@ -91,13 +91,13 @@ export const Navigation: React.FC = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8 ml-4">
               {navItems.map((item) => {
-                const isWork = item.label === 'Work Experience';
+                const isWork = item.href === '#experience';
                 if (!isWork) {
                   return (
                     <motion.button
                       key={item.label}
                       onClick={() => handleNavClick(item.href)}
-                      className="text-white hover:text-primary transition-colors duration-300 font-medium"
+                      className="text-black hover:text-primary transition-colors duration-300 font-medium"
                       whileHover={{ y: -2 }}
                       whileTap={{ y: 0 }}
                     >
@@ -110,7 +110,7 @@ export const Navigation: React.FC = () => {
                   <div key={item.label} className="relative" ref={workDropdownRef}>
                     <motion.button
                       onClick={() => setIsWorkDropdownOpen(prev => !prev)}
-                      className="text-white hover:text-primary transition-colors duration-300 font-medium inline-flex items-center"
+                      className="text-black hover:text-primary transition-colors duration-300 font-medium inline-flex items-center"
                       whileHover={{ y: -2 }}
                       whileTap={{ y: 0 }}
                       aria-haspopup="menu"
@@ -130,19 +130,19 @@ export const Navigation: React.FC = () => {
                           className="absolute left-0 mt-2 w-64 bg-white/15 backdrop-blur-lg border border-white/20 rounded-xl shadow-lg z-[60] p-2"
                           role="menu"
                         >
-                          <button className="block w-full text-left px-4 py-2 rounded-xl text-white hover:bg-black" onClick={() => handleNavToExperienceTab('planning')}>Planning</button>
-                          <button className="block w-full text-left px-4 py-2 rounded-xl text-white hover:bg-black" onClick={() => handleNavToExperienceTab('product-development')}>Product Development</button>
-                          <button className="block w-full text-left px-4 py-2 rounded-xl text-white hover:bg-black" onClick={() => handleNavToExperienceTab('performance')}>Performance</button>
-                          <button className="block w-full text-left px-4 py-2 rounded-xl text-white hover:bg-black" onClick={() => handleNavToExperienceTab('copywriting')}>Copywriting</button>
+                          <button className="block w-full text-left px-4 py-2 rounded-xl text-black hover:bg-black/10 hover:text-primary transition-colors" onClick={() => handleNavToExperienceTab('product-development')}>Product Development</button>
+                          <button className="block w-full text-left px-4 py-2 rounded-xl text-black hover:bg-black/10 hover:text-primary transition-colors" onClick={() => handleNavToExperienceTab('planning')}>Planning</button>
+                          <button className="block w-full text-left px-4 py-2 rounded-xl text-black hover:bg-black/10 hover:text-primary transition-colors" onClick={() => handleNavToExperienceTab('performance')}>Performance</button>
+                          <button className="block w-full text-left px-4 py-2 rounded-xl text-black hover:bg-black/10 hover:text-primary transition-colors" onClick={() => handleNavToExperienceTab('copywriting')}>Copywriting</button>
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </div>
                 );
               })}
-              
+
               {/* Let's Connect Button */}
-              <ButtonFill 
+              <ButtonFill
                 size="sm"
                 className="whitespace-nowrap px-4 flex items-center"
                 onClick={() => handleNavClick('#connect')}
@@ -154,7 +154,7 @@ export const Navigation: React.FC = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 text-white"
+              className="md:hidden p-2 text-black"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -188,13 +188,13 @@ export const Navigation: React.FC = () => {
             >
               <div className="px-4 py-6 space-y-4">
                 {navItems.map((item, index) => {
-                  const isWork = item.label === 'Work Experience';
+                  const isWork = item.href === '#experience';
                   if (!isWork) {
                     return (
                       <motion.button
                         key={item.label}
                         onClick={() => handleNavClick(item.href)}
-                        className="block w-full text-left text-lg font-medium text-white hover:text-primary transition-colors duration-300 py-2"
+                        className="block w-full text-left text-lg font-medium text-black hover:text-primary transition-colors duration-300 py-2"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.1 }}
@@ -208,7 +208,7 @@ export const Navigation: React.FC = () => {
                     <div key={item.label} className="space-y-2">
                       <motion.button
                         onClick={() => setIsMobileWorkOpen(prev => !prev)}
-                        className="inline-flex items-center justify-between w-full text-left text-lg font-medium text-white hover:text-primary transition-colors duration-300 py-2"
+                        className="inline-flex items-center justify-between w-full text-left text-lg font-medium text-black hover:text-primary transition-colors duration-300 py-2"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.1 }}
@@ -228,20 +228,20 @@ export const Navigation: React.FC = () => {
                             transition={{ duration: 0.2 }}
                             className="pl-2 space-y-2"
                           >
-                            <button className="block w-full text-left text-base font-medium text-white hover:text-primary transition-colors py-2" onClick={() => handleNavToExperienceTab('planning')}>Planning</button>
-                            <button className="block w-full text-left text-base font-medium text-white hover:text-primary transition-colors py-2" onClick={() => handleNavToExperienceTab('product-development')}>Product Development</button>
-                            <button className="block w-full text-left text-base font-medium text-white hover:text-primary transition-colors py-2" onClick={() => handleNavToExperienceTab('performance')}>Performance</button>
-                            <button className="block w-full text-left text-base font-medium text-white hover:text-primary transition-colors py-2" onClick={() => handleNavToExperienceTab('copywriting')}>Copywriting</button>
+                            <button className="block w-full text-left text-base font-medium text-black hover:text-primary transition-colors py-2" onClick={() => handleNavToExperienceTab('product-development')}>Product Development</button>
+                            <button className="block w-full text-left text-base font-medium text-black hover:text-primary transition-colors py-2" onClick={() => handleNavToExperienceTab('planning')}>Planning</button>
+                            <button className="block w-full text-left text-base font-medium text-black hover:text-primary transition-colors py-2" onClick={() => handleNavToExperienceTab('performance')}>Performance</button>
+                            <button className="block w-full text-left text-base font-medium text-black hover:text-primary transition-colors py-2" onClick={() => handleNavToExperienceTab('copywriting')}>Copywriting</button>
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
                   );
                 })}
-                
+
                 {/* Mobile Let's Connect Button */}
                 <div className="pt-4 border-t border-gray-200">
-                  <ButtonFill 
+                  <ButtonFill
                     className="w-full whitespace-nowrap px-4 flex items-center justify-center"
                     onClick={() => handleNavClick('#connect')}
                   >

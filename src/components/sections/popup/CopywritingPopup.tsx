@@ -51,39 +51,37 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
         {/* Left side: Logo, Name, Subtext */}
         <div className="flex items-center gap-3 flex-1 min-w-0">
           {project.logo ? (
-            <img 
-              src={project.logo} 
+            <img
+              src={project.logo}
               alt={`${project.name} logo`}
               className="w-12 h-12 rounded-full object-cover flex-shrink-0"
             />
           ) : (
             <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
-              <span className="text-white font-bold text-sm">
+              <span className="text-black font-bold text-sm">
                 {project.name.substring(0, 2)}
               </span>
             </div>
           )}
           <div className="flex-1 min-w-0">
             {project.href ? (
-              <a 
-                href={project.href} 
-                target="_blank" 
+              <a
+                href={project.href}
+                target="_blank"
                 rel="noopener noreferrer"
-                className={`text-xl font-bold hover:opacity-80 transition-colors duration-300 block ${
-                  project.nameColor || 'text-white'
-                }`}
+                className={`text-xl font-bold hover:opacity-80 transition-colors duration-300 block ${project.nameColor || 'text-black'
+                  }`}
               >
                 {project.name}
               </a>
             ) : (
-              <h3 className={`text-xl font-bold ${
-                project.nameColor || 'text-white'
-              }`}>
+              <h3 className={`text-xl font-bold ${project.nameColor || 'text-black'
+                }`}>
                 {project.name}
               </h3>
             )}
             {project.subtext && (
-              <p className="text-sm text-gray-400 mt-1 truncate">
+              <p className="text-sm text-gray-600 mt-1 truncate">
                 {project.subtext}
               </p>
             )}
@@ -92,14 +90,13 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
 
         {/* Right side: Type Badge and Period */}
         <div className="flex flex-col items-end gap-2 flex-shrink-0">
-          <span className={`px-3 py-1 text-xs rounded-full border flex items-center gap-1 ${
-            project.badgeColor || 'bg-primary/20 text-primary border-primary/30'
-          }`}>
+          <span className={`px-3 py-1 text-xs rounded-full border flex items-center gap-1 ${project.badgeColor || 'bg-primary/20 text-primary border-primary/30'
+            }`}>
             {project.typeBadge === 'Facebook' && <Facebook size={12} />}
             {project.typeBadge}
           </span>
           {project.period && (
-            <span className="text-xs text-gray-400 italic">
+            <span className="text-xs text-gray-600 italic">
               {project.period}
             </span>
           )}
@@ -109,14 +106,13 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
       {/* Results Section */}
       {project.results && project.results.length > 0 && (
         <div>
-          <h4 className="text-lg font-semibold text-white mb-4 text-center">
+          <h4 className="text-lg font-semibold text-black mb-4 text-center">
             Result
           </h4>
-          <div className={`grid gap-4 ${
-            project.results.length === 5 
-              ? 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-5' 
-              : 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
-          }`}>
+          <div className={`grid gap-4 ${project.results.length === 5
+            ? 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'
+            : 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+            }`}>
             {project.results.map((result, index) => (
               <FillPanel key={index} className="rounded-lg p-3 text-center transition-all duration-300 hover:scale-105">
                 <div className="flex items-center justify-center mb-2 text-white">
@@ -139,12 +135,12 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
         // Card 1: Large image + 2x3 grid with alt text
         <div>
           <div>
-            <h4 className="text-sm font-semibold text-white mb-1">
+            <h4 className="text-sm font-semibold text-black mb-1">
               My contribution:
             </h4>
             <ul className="space-y-0">
               {project.contributions.map((contribution, index) => (
-                <li key={index} className="text-gray-300 text-sm flex items-start gap-2">
+                <li key={index} className="text-gray-700 text-sm flex items-start gap-2">
                   <span className="text-primary mt-1">•</span>
                   <span>{contribution}</span>
                 </li>
@@ -154,13 +150,13 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
           {/* Large Image */}
           <div className="mt-6">
             <div className="w-full rounded-lg overflow-hidden">
-            {[
+              {[
                 { url: "/copywriting-tondegen/10.png", alt: "X Analytics" },
               ].map((image, index) => (
                 <div key={index} className="space-y-2">
                   <div className="w-3/5 mx-auto rounded-lg overflow-hidden">
-                  <p className="text-xs text-gray-400 text-center mb-2">{image.alt}</p>
-                    <img 
+                    <p className="text-xs text-gray-600 text-center mb-2">{image.alt}</p>
+                    <img
                       src={image.url}
                       alt={image.alt}
                       className="w-full h-auto object-cover rounded-lg "
@@ -172,8 +168,8 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
           </div>
           {/* 2x3 Grid with Alt Text */}
           <div className="mt-6">
-            <h4 className="text-sm font-semibold text-white mb-3">
-            Some of my copies on X:
+            <h4 className="text-sm font-semibold text-black mb-3">
+              Some of my copies on X:
             </h4>
             <div className="grid grid-cols-3 grid-rows-2 gap-4">
               {[
@@ -186,8 +182,8 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
               ].map((image, index) => (
                 <div key={index} className="space-y-2">
                   <div className="w-full overflow-hidden">
-                  <p className="text-xs text-gray-400 text-center mb-2">{image.alt}</p>
-                    <img 
+                    <p className="text-xs text-gray-600 text-center mb-2">{image.alt}</p>
+                    <img
                       src={image.url}
                       alt={image.alt}
                       className="w-full h-auto rounded-lg object-cover"
@@ -202,12 +198,12 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
         // Card 2: 3x1 grid
         <div>
           <div>
-            <h4 className="text-sm font-semibold text-white mb-1">
+            <h4 className="text-sm font-semibold text-black mb-1">
               My contribution:
             </h4>
             <ul className="space-y-0">
               {project.contributions.map((contribution, index) => (
-                <li key={index} className="text-gray-300 text-sm flex items-start gap-2">
+                <li key={index} className="text-gray-700 text-sm flex items-start gap-2">
                   <span className="text-primary mt-1">•</span>
                   <span>{contribution}</span>
                 </li>
@@ -216,8 +212,8 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
           </div>
           {/* 3x1 Grid */}
           <div className="mt-6">
-            <h4 className="text-sm font-semibold text-white mb-3">
-            Some of my copies on Facebook:
+            <h4 className="text-sm font-semibold text-black mb-3">
+              Some of my copies on Facebook:
             </h4>
             <div className="grid grid-cols-3 gap-4">
               {[
@@ -226,7 +222,7 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
                 "/copywriting-vincom/3.png"
               ].map((imageUrl, index) => (
                 <div key={index} className="w-full rounded-lg overflow-hidden">
-                  <img 
+                  <img
                     src={imageUrl}
                     alt={`Vincom project image ${index + 1}`}
                     className="w-full h-auto object-cover rounded-lg"
@@ -240,12 +236,12 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
         // Card 3: 3x1 grid
         <div>
           <div>
-            <h4 className="text-sm font-semibold text-white mb-1">
+            <h4 className="text-sm font-semibold text-black mb-1">
               My contribution:
             </h4>
             <ul className="space-y-0">
               {project.contributions.map((contribution, index) => (
-                <li key={index} className="text-gray-300 text-sm flex items-start gap-2">
+                <li key={index} className="text-gray-700 text-sm flex items-start gap-2">
                   <span className="text-primary mt-1">•</span>
                   <span>{contribution}</span>
                 </li>
@@ -254,17 +250,17 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
           </div>
           {/* 3x1 Grid */}
           <div className="mt-6">
-            <h4 className="text-sm font-semibold text-white mb-3">
-            Some of my copies on Facebook:
+            <h4 className="text-sm font-semibold text-black mb-3">
+              Some of my copies on Facebook:
             </h4>
             <div className="grid grid-cols-3 gap-4">
-            {[
+              {[
                 "/copywriting-vinfast/1.png",
                 "/copywriting-vinfast/2.png",
                 "/copywriting-vinfast/3.png"
               ].map((imageUrl, index) => (
                 <div key={index} className="w-full rounded-lg overflow-hidden">
-                  <img 
+                  <img
                     src={imageUrl}
                     alt={`Vincom project image ${index + 1}`}
                     className="w-full h-auto object-cover rounded-lg"
@@ -278,12 +274,12 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
         // Card 4: 4x1 grid with alt text
         <div>
           <div>
-            <h4 className="text-sm font-semibold text-white mb-1">
+            <h4 className="text-sm font-semibold text-black mb-1">
               My contribution:
             </h4>
             <ul className="space-y-0">
               {project.contributions.map((contribution, index) => (
-                <li key={index} className="text-gray-300 text-sm flex items-start gap-2">
+                <li key={index} className="text-gray-700 text-sm flex items-start gap-2">
                   <span className="text-primary mt-1">•</span>
                   <span>{contribution}</span>
                 </li>
@@ -292,11 +288,11 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
           </div>
           {/* 4x1 Grid with Alt Text */}
           <div className="mt-6">
-            <h4 className="text-sm font-semibold text-white mb-3">
-            Some of my copies on Facebook:
+            <h4 className="text-sm font-semibold text-black mb-3">
+              Some of my copies on Facebook:
             </h4>
             <div className="grid grid-cols-4 gap-4">
-            {[
+              {[
                 { url: "/copywriting-xanhsm/1.png", alt: "Topic: “App USPs (referral, special discounts,...)" },
                 { url: "/copywriting-xanhsm/2.png", alt: "Topic: Activity official announcements" },
                 { url: "/copywriting-xanhsm/3.png", alt: "Topic: Service USPs" },
@@ -304,8 +300,8 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
               ].map((image, index) => (
                 <div key={index} className="space-y-2">
                   <div className="w-full rounded-lg overflow-hidden">
-                  <p className="text-xs text-gray-400 text-center mb-2">{image.alt}</p>
-                    <img 
+                    <p className="text-xs text-gray-600 text-center mb-2">{image.alt}</p>
+                    <img
                       alt={image.alt}
                       src={image.url}
                       className="w-full h-auto object-cover rounded-lg"
@@ -320,12 +316,12 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
         // Card 5: Large image + 2x3 grid with alt text
         <div>
           <div>
-            <h4 className="text-sm font-semibold text-white mb-1">
+            <h4 className="text-sm font-semibold text-black mb-1">
               My contribution:
             </h4>
             <ul className="space-y-0">
               {project.contributions.map((contribution, index) => (
-                <li key={index} className="text-gray-300 text-sm flex items-start gap-2">
+                <li key={index} className="text-gray-700 text-sm flex items-start gap-2">
                   <span className="text-primary mt-1">•</span>
                   <span>{contribution}</span>
                 </li>
@@ -334,7 +330,7 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
           </div>
           {/* 2x3 Grid with Alt Text */}
           <div className="mt-6">
-            <h4 className="text-sm font-semibold text-white mb-3">
+            <h4 className="text-sm font-semibold text-black mb-3">
               Some of my copies on Facebook:
             </h4>
             <div className="grid grid-cols-3 grid-rows-2 gap-4">
@@ -348,8 +344,8 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
               ].map((image, index) => (
                 <div key={index} className="space-y-2">
                   <div className="w-full rounded-lg overflow-hidden">
-                  <p className="text-xs text-gray-400 text-center mb-2">{image.alt}</p>
-                    <img 
+                    <p className="text-xs text-gray-600 text-center mb-2">{image.alt}</p>
+                    <img
                       src={image.url}
                       alt={image.alt}
                       className="w-full h-auto object-cover rounded-lg"
@@ -364,12 +360,12 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
         // Fallback for any other projects
         project.contributions && project.contributions.length > 0 && (
           <div>
-            <h4 className="text-sm font-semibold text-white mb-3">
+            <h4 className="text-sm font-semibold text-black mb-3">
               My contribution:
             </h4>
             <ul className="space-y-0">
               {project.contributions.map((contribution, index) => (
-                <li key={index} className="text-gray-300 text-sm flex items-start gap-2">
+                <li key={index} className="text-gray-700 text-sm flex items-start gap-2">
                   <span className="text-primary mt-1">•</span>
                   <span>{contribution}</span>
                 </li>

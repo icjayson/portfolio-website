@@ -10,8 +10,8 @@ const config: Config = {
     extend: {
       colors: {
         // New primary color system
-        primary: '#138651',
-        secondary: '#093C33',
+        primary: '#2563eb',
+        secondary: '#0c2a52',
         // Backward compatibility with existing colors
         deepNavy: '#1E293B',
         warmGray: '#64748B',
@@ -96,11 +96,11 @@ const config: Config = {
         'inner-black-50': 'inset 0 0 12px 4px rgba(0, 0, 0, 0.5)',
         'inner-black-50-sm': 'inset 0 0 12px 2px rgba(0, 0, 0, 0.5)',
         'drop-white': '0 1px 0 rgba(255, 255, 255, 0.5)',
-        'spread-secondary': '0 0 0 4px #093C33',
-        'glow-primary': '0 0 30px rgba(19, 134, 81, 0.3)',
+        'spread-secondary': '0 0 0 4px #0c2a52',
+        'glow-primary': '0 0 30px rgba(37, 99, 235, 0.3)',
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(45deg, #093C33, #138651)',
+        'gradient-primary': 'linear-gradient(45deg, #0c2a52, #2563eb)',
       },
     },
   },

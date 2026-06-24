@@ -10,6 +10,7 @@ interface ProjectItem {
   href?: string;
   typeBadge: string;
   achievementBadge?: string;
+  achievementEvent?: string;
   nameColor?: string;
   badgeColor?: string;
   contributions: string[];
@@ -21,6 +22,46 @@ interface PlanningPopupProps {
 }
 
 export const PlanningPopup: React.FC<PlanningPopupProps> = ({ project }) => {
+  const objectivesByName: Record<string, string[]> = {
+    LAONMEDI: [
+      "Increase brand awareness in Vietnamese market",
+      "Develop comprehensive marketing strategy",
+      "Build strong brand positioning",
+      "Create effective customer acquisition plan"
+    ],
+    SUKI: [
+      "Enhance brand recognition and market share",
+      "Develop innovative marketing campaigns",
+      "Strengthen customer engagement",
+      "Drive sales growth through strategic initiatives"
+    ],
+    KISSHU: [
+      "Establish competitive advantage in market",
+      "Develop integrated marketing communication",
+      "Build brand differentiation",
+      "Increase market penetration"
+    ],
+    Vincom: [
+      "Enhance social media presence",
+      "Improve content quality and engagement",
+      "Build stronger brand community",
+      "Increase digital reach and visibility"
+    ],
+    "Dong Luc Sport": [
+      "Develop compelling social media content",
+      "Increase brand engagement and following",
+      "Create authentic brand voice",
+      "Drive community growth and loyalty"
+    ],
+    "TON Degen": [
+      "Build strong TON community in Vietnam",
+      "Develop strategic growth initiatives",
+      "Increase community engagement",
+      "Drive adoption and awareness"
+    ]
+  };
+  const objectives = objectivesByName[project.name] || [];
+
   return (
     <div className="space-y-6">
       {/* Combined Header Row: Logo, Name, Type Badge */}
@@ -35,7 +76,7 @@ export const PlanningPopup: React.FC<PlanningPopupProps> = ({ project }) => {
             />
           ) : (
             <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
-              <span className="text-white font-bold text-sm">
+              <span className="text-black font-bold text-sm">
                 {project.name.substring(0, 2)}
               </span>
             </div>
@@ -47,14 +88,14 @@ export const PlanningPopup: React.FC<PlanningPopupProps> = ({ project }) => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className={`text-xl font-bold hover:opacity-80 transition-colors duration-300 block ${
-                  project.nameColor || 'text-white'
+                  project.nameColor || 'text-black'
                 }`}
               >
                 {project.name}
               </a>
             ) : (
               <h3 className={`text-xl font-bold ${
-                project.nameColor || 'text-white'
+                project.nameColor || 'text-black'
               }`}>
                 {project.name}
               </h3>
@@ -77,22 +118,22 @@ export const PlanningPopup: React.FC<PlanningPopupProps> = ({ project }) => {
         <div>
           <FillPanel className="p-1 rounded-lg text-center">
             <span className="text-sm font-medium text-white">
-              {project.achievementBadge} at &quot;{project.name === 'SUKI' ? 'Marketing Big Day 2024' : 'Chien Binh Marketing 2024'}&quot; competition
+              {project.achievementBadge}{project.achievementEvent ? ` ${project.achievementEvent}` : ''}
             </span>
           </FillPanel>
         </div>
       )}
 
-      {/* Contributions and Objectives - 2 Column Layout */}
-      <div className="grid grid-cols-2 gap-6">
+      {/* Contributions and Objectives - 2 Column Layout (Objectives hidden when empty) */}
+      <div className={`grid gap-6 ${objectives.length > 0 ? 'grid-cols-2' : 'grid-cols-1'}`}>
         {/* Left Column: Contributions */}
         <div>
-          <h4 className="text-sm font-semibold text-white mb-1">
+          <h4 className="text-sm font-semibold text-black mb-1">
             My contribution:
           </h4>
           <ul className="space-y-0">
             {project.contributions.map((contribution, index) => (
-              <li key={index} className="text-gray-300 text-sm flex items-start gap-2">
+              <li key={index} className="text-gray-700 text-sm flex items-start gap-2">
                 <span className="text-primary mt-1">•</span>
                 <span>{contribution}</span>
               </li>
@@ -100,96 +141,68 @@ export const PlanningPopup: React.FC<PlanningPopupProps> = ({ project }) => {
           </ul>
         </div>
 
-        {/* Right Column: Objectives */}
-        <div>
-          <h4 className="text-sm font-semibold text-white mb-1">
-            Objectives:
-          </h4>
-          <ul className="space-y-0">
-            {project.name === 'LAONMEDI' && [
-              "Increase brand awareness in Vietnamese market",
-              "Develop comprehensive marketing strategy",
-              "Build strong brand positioning",
-              "Create effective customer acquisition plan"
-            ].map((objective, index) => (
-              <li key={index} className="text-gray-300 text-sm flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span>{objective}</span>
-              </li>
-            ))}
-            {project.name === 'SUKI' && [
-              "Enhance brand recognition and market share",
-              "Develop innovative marketing campaigns",
-              "Strengthen customer engagement",
-              "Drive sales growth through strategic initiatives"
-            ].map((objective, index) => (
-              <li key={index} className="text-gray-300 text-sm flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span>{objective}</span>
-              </li>
-            ))}
-            {project.name === 'KISSHU' && [
-              "Establish competitive advantage in market",
-              "Develop integrated marketing communication",
-              "Build brand differentiation",
-              "Increase market penetration"
-            ].map((objective, index) => (
-              <li key={index} className="text-gray-300 text-sm flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span>{objective}</span>
-              </li>
-            ))}
-            {project.name === 'Vincom' && [
-              "Enhance social media presence",
-              "Improve content quality and engagement",
-              "Build stronger brand community",
-              "Increase digital reach and visibility"
-            ].map((objective, index) => (
-              <li key={index} className="text-gray-300 text-sm flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span>{objective}</span>
-              </li>
-            ))}
-            {project.name === 'Dong Luc Sport' && [
-              "Develop compelling social media content",
-              "Increase brand engagement and following",
-              "Create authentic brand voice",
-              "Drive community growth and loyalty"
-            ].map((objective, index) => (
-              <li key={index} className="text-gray-300 text-sm flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span>{objective}</span>
-              </li>
-            ))}
-            {project.name === 'TON Degen' && [
-              "Build strong TON community in Vietnam",
-              "Develop strategic growth initiatives",
-              "Increase community engagement",
-              "Drive adoption and awareness"
-            ].map((objective, index) => (
-              <li key={index} className="text-gray-300 text-sm flex items-start gap-2">
-                <span className="text-primary mt-1">•</span>
-                <span>{objective}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* Right Column: Objectives (only when present) */}
+        {objectives.length > 0 && (
+          <div>
+            <h4 className="text-sm font-semibold text-black mb-1">
+              Objectives:
+            </h4>
+            <ul className="space-y-0">
+              {objectives.map((objective, index) => (
+                <li key={index} className="text-gray-700 text-sm flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>{objective}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
       {/* Image Grid - Dynamic Layout */}
       <div>
-        <h4 className="text-sm font-semibold text-white mb-3">
+        <h4 className="text-sm font-semibold text-black mb-3">
           Showcase of my work:
         </h4>
         <div className={`grid gap-4 ${
-          project.name === 'LAONMEDI' || project.name === 'SUKI' 
-            ? 'grid-cols-2 grid-rows-4' 
-            : project.name === 'KISSHU'
+          project.name === 'LAONMEDI' || project.name === 'SUKI'
+            ? 'grid-cols-2 grid-rows-4'
+            : project.name === 'KISSHU' || project.id === 25
             ? 'grid-cols-2 grid-rows-3'
-            :project.name ==='Dong Luc Sport'|| project.name === 'Vincom'
+            :project.name ==='Dong Luc Sport'|| project.name === 'Vincom' || project.id === 24
             ? 'grid-cols-2 grid-rows-2'
             : 'grid-cols-3 grid-rows-1'
         }`}>
+          {project.id === 24 && [
+            "/planning-googlehackathon/4.png",
+            "/planning-googlehackathon/6.png",
+            "/planning-googlehackathon/9.png",
+            "/planning-googlehackathon/13.png",
+          ].map((imageUrl, index) => (
+            <div key={index} className="w-full rounded-lg overflow-hidden">
+              <img
+                src={imageUrl}
+                alt={`Google Developer Groups On Campus Hackathon Vietnam 2026 image ${index + 1}`}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          ))}
+          {project.id === 25 && [
+            "/planning-vas/3.png",
+            "/planning-vas/4.png",
+            "/planning-vas/5.png",
+            "/planning-vas/8.png",
+            "/planning-vas/10.png",
+            "/planning-vas/12.png",
+          ].map((imageUrl, index) => (
+            <div key={index} className="w-full rounded-lg overflow-hidden">
+              <img
+                src={imageUrl}
+                alt={`Vietnam AI Stars 2026 image ${index + 1}`}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          ))}
           {project.name === 'LAONMEDI' && [
             "/planning-laonmedi/0.png",
             "/planning-laonmedi/1.png",

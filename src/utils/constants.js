@@ -1,8 +1,8 @@
 // Color system constants
 export const COLORS = {
   // New primary color system
-  primary: '#138651',
-  secondary: '#093C33',
+  primary: '#2563eb',
+  secondary: '#0c2a52',
   // Backward compatibility with existing colors
   deepNavy: '#1E293B',
   warmGray: '#64748B', 
@@ -10,10 +10,10 @@ export const COLORS = {
   accentCoral: '#FF6B6B',
   softGold: '#F59E0B',
   gradients: {
-    primary: 'linear-gradient(45deg, #093C33, #138651)',
+    primary: 'linear-gradient(45deg, #0c2a52, #2563eb)',
     legacy: 'linear-gradient(135deg, #1E293B 0%, #64748B 100%)',
     accent: 'linear-gradient(135deg, #FF6B6B 0%, #F59E0B 100%)',
-    subtle: 'linear-gradient(135deg, rgba(19, 134, 81, 0.05) 0%, rgba(9, 60, 51, 0.1) 100%)'
+    subtle: 'linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(12, 42, 82, 0.1) 100%)'
   }
 }
 
