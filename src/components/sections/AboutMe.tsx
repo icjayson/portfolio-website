@@ -109,7 +109,7 @@ export const AboutMe: React.FC = () => {
           'Contributed to conceptualizing and creating “HORUS" Brand Guideline']
     },
     {
-      role: 'Content Coordinator',
+      role: 'Marketing Intern',
       company: 'G.E.C Agency',
       skills: ['Strategic Planning', 'Copywriting'],
       period: '05/2023 - 09/2023',
@@ -119,7 +119,7 @@ export const AboutMe: React.FC = () => {
           'Executed multi-channel seeding activities.']
     },
     {
-      role: 'Marketing Intern',
+      role: 'Performance Marketing Intern',
       company: 'S.O.C Institute',
       skills: ['Performance', 'Copywriting'],
       period: '11/2022 - 06/2023',

@@ -140,13 +140,13 @@ export const portfolioData = {
 // Experience timeline data
 export const experienceData = [
   {
-    role: 'Marketing Intern',
+    role: 'Performance Marketing Intern',
     company: 'S.O.C Institute',
     skills: ['Copywriting', 'Performance'],
     period: '11/2022 - 06/2023'
   },
   {
-    role: 'Content Coordinator',
+    role: 'Marketing Intern',
     company: 'G.E.C Agency',
     skills: ['Planning', 'Copywriting'],
     period: '05/2023 - 09/2023'
@@ -164,7 +164,7 @@ export const experienceData = [
     period: '03/2024 - 06/2024'
   },
   {
-    role: 'Marketing Intern',
+    role: 'Marketing Associate',
     company: 'EVG Cloud',
     skills: ['SEO', 'Copywriting', 'Planning'],
     period: '03/2025 - 05/2025'
