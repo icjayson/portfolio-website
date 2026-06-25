@@ -152,7 +152,7 @@ export const experienceData = [
     period: '05/2023 - 09/2023'
   },
   {
-    role: 'Marketing Executive',
+    role: 'Growth Marketing Executive',
     company: 'AnyAxis Labs',
     skills: ['Planning', 'Copywriting', 'Product'],
     period: '03/2024 - 02/2025'

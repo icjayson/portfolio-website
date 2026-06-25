@@ -82,7 +82,7 @@ export const AboutMe: React.FC = () => {
           'Designed UI for the website “Blog” module to improve content operation']
     },
     {
-      role: 'Marketing Executive',
+      role: 'Growth Marketing Executive',
       company: 'AnyAxis Labs',
       subtext: 'Role: Head of Marketing at Ton Degen',
       skills: ['Strategic Planning', 'Performance', 'Product Development'],
