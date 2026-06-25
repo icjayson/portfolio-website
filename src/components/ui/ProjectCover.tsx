@@ -4,7 +4,7 @@ import React from 'react';
 import { ImageIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-type CoverRatio = '16/9' | '16/7' | '16/5' | '2/3' | '3/5';
+type CoverRatio = '16/9' | '16/7' | '16/5' | '2/3' | '3/4';
 
 const ratioClass: Record<CoverRatio, string> = {
   '16/9': 'aspect-[16/9]',
@@ -12,7 +12,7 @@ const ratioClass: Record<CoverRatio, string> = {
   '16/5': 'aspect-[16/5]',
   // Portrait only on large screens; stays 16/9 on smaller screens to avoid a too-tall banner
   '2/3': 'aspect-[16/9] lg:aspect-[2/3]',
-  '3/5': 'aspect-[16/9] lg:aspect-[3/5]'
+  '3/4': 'aspect-[16/9] lg:aspect-[3/4]'
 };
 
 interface ProjectCoverProps {

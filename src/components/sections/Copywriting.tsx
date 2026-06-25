@@ -117,7 +117,7 @@ const copywritingProjects: ProjectItem[] = [
   }
 ];
 
-const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: ProjectItem) => void; ratio?: '16/9' | '16/7' | '16/5' | '2/3' | '3/5' }> = ({ project, onViewMore, ratio = '16/7' }) => {
+const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: ProjectItem) => void; ratio?: '16/9' | '16/7' | '16/5' | '2/3' | '3/4' }> = ({ project, onViewMore, ratio = '16/7' }) => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case "Users": return <Users className="w-4 h-4" />;
@@ -218,7 +218,10 @@ const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: Projec
           <h4 className="text-lg font-semibold text-black mb-4 text-center">
             Result
           </h4>
-          <div className="grid gap-4 grid-cols-2 xl:grid-cols-3">
+          <div className={`grid gap-4 ${project.results.length === 5
+            ? 'grid-cols-2 xl:grid-cols-5'
+            : 'grid-cols-2 xl:grid-cols-4'
+            }`}>
             {project.results.map((result, index) => (
               <FillPanel key={index} className="rounded-lg p-3 text-center transition-all duration-300 hover:scale-105">
                 <div className="flex items-center justify-center mb-2 text-white">
@@ -286,7 +289,7 @@ export const Copywriting: React.FC = () => {
             whileHover={{ y: -6 }}
             transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
           >
-            <ProjectCard project={project} onViewMore={openPopup} ratio={project.name === 'Vincom' ? '3/5' : '16/9'} />
+            <ProjectCard project={project} onViewMore={openPopup} ratio={project.name === 'Vincom' ? '3/4' : '16/9'} />
           </motion.div>
         ))}
       </div>

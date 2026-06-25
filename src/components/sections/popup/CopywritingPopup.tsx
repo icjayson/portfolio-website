@@ -154,7 +154,7 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
                 { url: "/copywriting-tondegen/10.png", alt: "X Analytics" },
               ].map((image, index) => (
                 <div key={index} className="space-y-2">
-                  <div className="w-3/5 mx-auto rounded-lg overflow-hidden">
+                  <div className="w-3/4 mx-auto rounded-lg overflow-hidden">
                     <p className="text-xs text-gray-600 text-center mb-2">{image.alt}</p>
                     <img
                       src={image.url}

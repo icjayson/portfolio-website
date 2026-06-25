@@ -192,7 +192,10 @@ const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: Projec
           <h4 className="text-lg font-semibold text-black mb-4 text-center">
             Result
           </h4>
-          <div className="grid gap-4 grid-cols-2 xl:grid-cols-3">
+          <div className={`grid gap-4 ${project.results.length === 5
+            ? 'grid-cols-2 xl:grid-cols-5'
+            : 'grid-cols-2 xl:grid-cols-4'
+            }`}>
             {project.results.map((result, index) => (
               <FillPanel key={index} className="rounded-lg p-3 text-center transition-all duration-300 hover:scale-105">
                 <div className="flex items-center justify-center mb-2 text-white">
