@@ -171,7 +171,7 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
             <h4 className="text-sm font-semibold text-black mb-3">
               Some of my copies on X:
             </h4>
-            <div className="grid grid-cols-3 grid-rows-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
                 { url: "/copywriting-tondegen/1.png", alt: "Topic: Regular news" },
                 { url: "/copywriting-tondegen/2.png", alt: "Topic: Regular news" },
@@ -215,7 +215,7 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
             <h4 className="text-sm font-semibold text-black mb-3">
               Some of my copies on Facebook:
             </h4>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
                 "/copywriting-vincom/1.png",
                 "/copywriting-vincom/2.png",
@@ -253,7 +253,7 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
             <h4 className="text-sm font-semibold text-black mb-3">
               Some of my copies on Facebook:
             </h4>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
                 "/copywriting-vinfast/1.png",
                 "/copywriting-vinfast/2.png",
@@ -291,7 +291,7 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
             <h4 className="text-sm font-semibold text-black mb-3">
               Some of my copies on Facebook:
             </h4>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {[
                 { url: "/copywriting-xanhsm/1.png", alt: "Topic: “App USPs (referral, special discounts,...)" },
                 { url: "/copywriting-xanhsm/2.png", alt: "Topic: Activity official announcements" },
@@ -333,7 +333,7 @@ export const CopywritingPopup: React.FC<CopywritingPopupProps> = ({ project }) =
             <h4 className="text-sm font-semibold text-black mb-3">
               Some of my copies on Facebook:
             </h4>
-            <div className="grid grid-cols-3 grid-rows-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
                 { url: "/copywriting-phenmarketing/1.png", alt: "Topic: Course introduction" },
                 { url: "/copywriting-phenmarketing/2.png", alt: "Topic: Knowledge" },

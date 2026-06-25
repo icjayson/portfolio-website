@@ -96,7 +96,7 @@ export const ProductDevelopmentPopup: React.FC<ProductDevelopmentPopupProps> = (
             <span className="text-sm font-semibold text-black">Context:</span> Xuong Ky Uc provides NFC-enabled personalized cards and interactive love websites, combining emotional gifting with personalized digital interaction.
           </p>
           <p className="text-md text-black mt-2">
-            <a href="https://xuongkyuc.com" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors duration-200 underline">
+            <a href="https://xuong-ky-uc.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors duration-200 underline">
               Visit website: xuongkyuc.com
             </a>
           </p>
@@ -146,7 +146,7 @@ export const ProductDevelopmentPopup: React.FC<ProductDevelopmentPopupProps> = (
               <h4 className="text-sm font-semibold text-black mb-3">
                 Key milestones after 1-month launch:
               </h4>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
                   { label: 'Visitors', value: '700+' },
                   { label: 'Page views', value: '11K+' },
@@ -170,7 +170,7 @@ export const ProductDevelopmentPopup: React.FC<ProductDevelopmentPopupProps> = (
               </h4>
               <div className="space-y-4">
                 {/* Product walkthrough video */}
-                <div className="w-full max-w-[70%] mx-auto rounded-lg overflow-hidden">
+                <div className="w-full max-w-full md:max-w-[70%] mx-auto rounded-lg overflow-hidden">
                   <p className="text-xs text-gray-600 text-center mb-2">Product Showcase Video</p>
                   <video
                     src="/product-dreamify/video-about-full.mp4"
@@ -182,7 +182,8 @@ export const ProductDevelopmentPopup: React.FC<ProductDevelopmentPopupProps> = (
                 {/* Images */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
-                    { src: "/product-dreamify/1.png", caption: "Product Main Interface" },
+                    { src: "/product-dreamify/1.png", caption: "Product Browser Interface" },
+                    { src: "/product-dreamify/4.png", caption: "Workspace Integration Interface" },
                     { src: "/product-dreamify/3.jpg", caption: "Data Connector Feature" },
                     { src: "/product-dreamify/2.png", caption: "Fundraising pitch deck" },
                   ].map((item, index) => (

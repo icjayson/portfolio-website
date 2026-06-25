@@ -36,7 +36,6 @@ const planningProjects: ProjectItem[] = [
     contributions: [
       "Built the fundraising pitch deck covering problem, solution, market and business model",
       "Crafted the product narrative, traction story and financial model for investors",
-      "Pitched Dreamify live to judges and mentors at the competition",
     ]
   },
   {
@@ -53,7 +52,6 @@ const planningProjects: ProjectItem[] = [
     contributions: [
       "Built the fundraising pitch deck covering problem, solution, market and business model",
       "Crafted the product narrative, traction story and financial model for investors",
-      "Pitched Dreamify live to judges and mentors at the competition",
     ]
   },
   {
@@ -153,14 +151,15 @@ const planningProjects: ProjectItem[] = [
   }
 ];
 
-const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: ProjectItem) => void; ratio?: '16/9' | '16/7' | '16/5' }> = ({ project, onViewMore, ratio = '16/9' }) => {
+const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: ProjectItem) => void; ratio?: '16/9' | '16/7' | '16/5' | '2/3' }> = ({ project, onViewMore, ratio = '16/9' }) => {
   return (
     <CardPanel className="group p-6 rounded-2xl h-full flex flex-col relative overflow-hidden">
       {/* Cover image */}
       <ProjectCover src={project.coverImage} name={project.name} ratio={ratio} />
 
-      {/* Row 1: Logo, Company Name and Type Badge */}
-      <div className="flex items-center justify-between gap-3 mb-4">
+      {/* Row 1: Logo, Company Name and Type Badge
+          (stacked below xl: name → badge; side-by-side on xl) */}
+      <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-3 mb-4">
         <div className="flex items-center gap-3 min-w-0">
           {project.logo ? (
             <img
@@ -192,7 +191,7 @@ const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: Projec
             </h3>
           )}
         </div>
-        <span className={`px-3 py-1 text-xs rounded-full border whitespace-nowrap flex-shrink-0 ${project.badgeColor || 'bg-primary/20 text-primary border-primary/30'
+        <span className={`w-fit px-3 py-1 text-xs rounded-full border whitespace-nowrap flex-shrink-0 ${project.badgeColor || 'bg-primary/20 text-primary border-primary/30'
           }`}>
           {project.typeBadge}
         </span>

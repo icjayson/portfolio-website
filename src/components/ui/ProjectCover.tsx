@@ -4,19 +4,22 @@ import React from 'react';
 import { ImageIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-type CoverRatio = '16/9' | '16/7' | '16/5';
+type CoverRatio = '16/9' | '16/7' | '16/5' | '2/3' | '3/5';
 
 const ratioClass: Record<CoverRatio, string> = {
   '16/9': 'aspect-[16/9]',
   '16/7': 'aspect-[16/7]',
-  '16/5': 'aspect-[16/5]'
+  '16/5': 'aspect-[16/5]',
+  // Portrait only on large screens; stays 16/9 on smaller screens to avoid a too-tall banner
+  '2/3': 'aspect-[16/9] lg:aspect-[2/3]',
+  '3/5': 'aspect-[16/9] lg:aspect-[3/5]'
 };
 
 interface ProjectCoverProps {
   /** Cover image path; falls back to a styled placeholder when omitted */
   src?: string;
   name: string;
-  /** Aspect ratio — pick by card layout: 3-col 16/9, 2-col 16/7, 1-col 16/5 */
+  /** Aspect ratio — pick by card layout: 3-col 16/9, 2-col 16/7, 1-col 16/5, portrait 2/3 (lg) */
   ratio?: CoverRatio;
   className?: string;
 }

@@ -52,8 +52,8 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
         {/* Left side: Logo, Name, Subtext */}
         <div className="flex items-center gap-3 flex-1 min-w-0">
           {project.logo ? (
-            <img 
-              src={project.logo} 
+            <img
+              src={project.logo}
               alt={`${project.name} logo`}
               className="w-12 h-12 rounded-full object-cover flex-shrink-0"
             />
@@ -66,20 +66,18 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
           )}
           <div className="flex-1 min-w-0">
             {project.href ? (
-              <a 
-                href={project.href} 
-                target="_blank" 
+              <a
+                href={project.href}
+                target="_blank"
                 rel="noopener noreferrer"
-                className={`text-xl font-bold hover:opacity-80 transition-colors duration-300 block ${
-                  project.nameColor || 'text-black'
-                }`}
+                className={`text-xl font-bold hover:opacity-80 transition-colors duration-300 block ${project.nameColor || 'text-black'
+                  }`}
               >
                 {project.name}
               </a>
             ) : (
-              <h3 className={`text-xl font-bold ${
-                project.nameColor || 'text-black'
-              }`}>
+              <h3 className={`text-xl font-bold ${project.nameColor || 'text-black'
+                }`}>
                 {project.name}
               </h3>
             )}
@@ -93,9 +91,8 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
 
         {/* Right side: Type Badge and Period */}
         <div className="flex flex-col items-end gap-2 flex-shrink-0">
-          <span className={`px-3 py-1 text-xs rounded-full border flex items-center gap-1 ${
-            project.badgeColor || 'bg-primary/20 text-primary border-primary/30'
-          }`}>
+          <span className={`px-3 py-1 text-xs rounded-full border flex items-center gap-1 ${project.badgeColor || 'bg-primary/20 text-primary border-primary/30'
+            }`}>
             {project.typeBadge === 'Facebook Ads' && <Facebook size={12} />}
             {project.typeBadge}
           </span>
@@ -108,32 +105,24 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
       </div>
 
       {/* Context Section */}
-      {project.name === 'Zalo Games' && (
-        <div className="rounded-lg">
-          <p className="text-gray-700 text-sm leading-relaxed">
-            <span className="text-sm font-semibold text-black">Context:</span> Zalo Games is a game publisher mainly operating games within the Zalo Mini App ecosystem, focusing on game launch, UA, live operations and monetization growth.
-          </p>
-        </div>
-      )}
       {project.name === 'Tạp Hoá Decor' && (
         <div className="rounded-lg">
           <p className="text-gray-700 text-sm leading-relaxed">
-          <span className="text-sm font-semibold text-black">Context:</span> My personal business project with limited ads budget.
+            <span className="text-sm font-semibold text-black">Context:</span> My personal business project with limited ads budget.
           </p>
         </div>
       )}
 
-      {/* Results Section */}
-      {project.results && project.results.length > 0 && (
+      {/* Results Section (Zalo Games uses its own per-game layout below) */}
+      {project.results && project.results.length > 0 && project.name !== 'Zalo Games' && (
         <div>
           <h4 className="text-lg font-semibold text-black mb-4 text-center">
             Result
           </h4>
-          <div className={`grid gap-4 ${
-            project.results.length === 5 
-              ? 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-5' 
-              : 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
-          }`}>
+          <div className={`grid gap-4 ${project.results.length === 5
+            ? 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'
+            : 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+            }`}>
             {project.results.map((result, index) => (
               <FillPanel key={index} className="rounded-lg p-3 text-center transition-all duration-300 hover:scale-105">
                 <div className="flex items-center justify-center mb-2 text-white">
@@ -153,59 +142,108 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
 
       {/* Contributions and Images - Conditional Layouts */}
       {project.name === 'Zalo Games' ? (
-        <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <h4 className="text-sm font-semibold text-black mb-1">
-                Funnel ownership:
-              </h4>
-              <ul className="space-y-0">
-                {project.contributions.map((contribution, index) => (
-                  <li key={index} className="text-gray-700 text-sm flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>{contribution}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-black mb-1">
-                Monitored KPIs:
-              </h4>
-              <ul className="space-y-0">
-                {[
-                  'CPI, CTR and traffic quality for user acquisition efficiency',
-                  'NRU, PU, PR, RR and revenue for funnel and monetization health',
-                  'Daily post-release reports to identify bottlenecks and optimization actions'
-                ].map((item, index) => (
-                  <li key={index} className="text-gray-700 text-sm flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+        <div className="space-y-6">
+          {/* Context */}
+          <div>
+            <p className="text-gray-700 text-sm leading-relaxed">
+              <span className="font-semibold text-black">Context:</span> Marketing Owner of 2 new games (Ma Kiếm &amp; ZA War: Survival VN)
+            </p>
+          </div>
+
+          {/* My contribution */}
+          <div>
+            <h4 className="text-sm font-semibold text-black mb-1">
+              My contribution:
+            </h4>
+            <ul className="space-y-1">
+              {[
+                'Owned marketing execution from game research, brand guideline and launch plan to daily UA setup, data tracking and optimization',
+                'Managed internal and external UA channels, monitoring KPIs including CPI, CTR, NRU, PU, PR, RR and revenue',
+                'Prepared daily data reports, identified funnel bottlenecks and proposed post-release optimization actions'
+              ].map((item, index) => (
+                <li key={index} className="text-gray-700 text-sm flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Result — per game: metric card + image with description */}
+          <div>
+            <h4 className="text-sm font-semibold text-black mb-3">
+              Result:
+            </h4>
+            <div className="space-y-4">
+              {[
+                {
+                  game: 'Game "Ma Kiếm"',
+                  image: '/performance-zalogames/1.png',
+                  description: 'Game data overview in the first month',
+                  metrics: [
+                    { label: 'NRU (M1)', value: '470K+' },
+                    { label: 'Revenue (M1)', value: '2.5B+ VND' },
+                    { label: 'DAU (3mo)', value: '26K+' },
+                    { label: 'Revenue (3mo)', value: '6.7B+ VND' }
+                  ]
+                },
+                {
+                  game: 'Game "ZA War: Survival VN"',
+                  image: '/performance-zalogames/2.png',
+                  description: 'Game data overview in the first month',
+                  metrics: [
+                    { label: 'NRU (M1)', value: '880K+' },
+                    { label: 'Revenue (M1)', value: '1.8B+ VND' }
+                  ]
+                }
+              ].map((g, gi) => (
+                <div key={gi} className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
+                  {/* Metric side (1 col) */}
+                  <div>
+                    <div className="text-base font-bold text-black mb-2">{g.game}</div>
+                    <div className="grid grid-cols-2 gap-2">
+                      {g.metrics.map((m, mi) => (
+                        <FillPanel key={mi} className="rounded-lg p-3 text-center">
+                          <div className="text-lg font-bold text-white mb-1">{m.value}</div>
+                          <div className="text-xs text-white/80">{m.label}</div>
+                        </FillPanel>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Image side (2 cols) */}
+                  <div className="md:col-span-2 w-full rounded-lg overflow-hidden">
+                    <img
+                      src={g.image}
+                      alt={g.game}
+                      className="w-full h-auto object-cover rounded-lg"
+                    />
+                    <p className="text-xs text-gray-600 text-center mt-2">{g.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
+          {/* Showcase */}
           <div>
             <h4 className="text-sm font-semibold text-black mb-3">
-              Game launch milestones:
+              Showcase of my work:
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
-                {
-                  game: 'Ma Kiem',
-                  result: '500K+ NRU and 2B+ VND revenue in the 1st month; 5B+ VND revenue after 3 months'
-                },
-                {
-                  game: 'ZA War: Survival VN',
-                  result: '800K+ NRU and 1.8B+ VND revenue in the 1st month'
-                }
-              ].map((item, index) => (
-                <FillPanel key={index} className="rounded-lg p-4">
-                  <div className="text-base font-bold text-black mb-2">{item.game}</div>
-                  <div className="text-sm text-white/85">{item.result}</div>
-                </FillPanel>
+                { url: "/performance-zalogames/3.JPG", caption: "Daily data reporting of internal-traffic performance" },
+                { url: "/performance-zalogames/4.JPG", caption: "Daily data reporting of external-traffic performance" },
+                { url: "/performance-zalogames/5.JPG", caption: "Daily data reporting of game's payment status" },
+                { url: "/performance-zalogames/6.JPG", caption: "Daily data reporting of game's user-login status" }
+              ].map((item, i) => (
+                <div key={i} className="w-full rounded-lg overflow-hidden">
+                  <p className="text-xs text-gray-600 text-center mb-2">{item.caption}</p>
+                  <img
+                    src={item.url}
+                    alt={item.caption}
+                    className="w-full h-auto object-cover rounded-lg"
+                  />
+                </div>
               ))}
             </div>
           </div>
@@ -223,17 +261,17 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
           </div>
           {/* Large Image */}
           <div className="mt-6">
-          <h4 className="text-sm font-semibold text-black mb-3">
+            <h4 className="text-sm font-semibold text-black mb-3">
               Showcase of my work:
             </h4>
             <div className="w-full rounded-lg overflow-hidden">
-            {[
+              {[
                 { url: "/performance-phenmarketing.png", alt: "Facebook Ads Analytics" },
               ].map((image, index) => (
                 <div key={index} className="space-y-2">
                   <div className="w-full rounded-lg overflow-hidden">
-                  <p className="text-xs text-gray-600 text-center mb-2">{image.alt}</p>
-                    <img 
+                    <p className="text-xs text-gray-600 text-center mb-2">{image.alt}</p>
+                    <img
                       src={image.url}
                       alt={image.alt}
                       className="w-full h-auto object-cover rounded-lg "
@@ -268,13 +306,13 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
               Showcase of my work:
             </h4>
             <div className="w-full rounded-lg overflow-hidden">
-            {[
+              {[
                 { url: "/performance-taphoadecor.png", alt: "Facebook Ads Analytics" },
               ].map((image, index) => (
                 <div key={index} className="space-y-2">
                   <div className="w-full rounded-lg overflow-hidden">
-                  <p className="text-xs text-gray-600 text-center mb-2">{image.alt}</p>
-                    <img 
+                    <p className="text-xs text-gray-600 text-center mb-2">{image.alt}</p>
+                    <img
                       src={image.url}
                       alt={image.alt}
                       className="w-full h-auto object-cover rounded-lg "
@@ -306,7 +344,7 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
             <h4 className="text-sm font-semibold text-black mb-3">
               Showcase of my work:
             </h4>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
                 { url: "/performance-evg/4.png", alt: "UI design on Figma" },
                 { url: "/performance-evg/1.png", alt: "Interface of new Blog module" },
@@ -314,8 +352,8 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
               ].map((image, index) => (
                 <div key={index} className="space-y-2">
                   <div className="w-full rounded-lg overflow-hidden">
-                  <p className="text-xs text-gray-600 text-center mb-2">{image.alt}</p>
-                    <img 
+                    <p className="text-xs text-gray-600 text-center mb-2">{image.alt}</p>
+                    <img
                       src={image.url}
                       alt={image.alt}
                       className="w-full h-auto object-cover rounded-lg"

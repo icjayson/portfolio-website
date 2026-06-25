@@ -160,7 +160,7 @@ export const AboutMe: React.FC = () => {
       role: 'Co-Founder & Product Lead',
       company: 'Xuong Ky Uc',
       companyDomain: 'xuongkyuc.com',
-      companyUrl: 'https://xuongkyuc.com',
+      companyUrl: 'https://xuong-ky-uc.vercel.app/',
       skills: ['Product Research', 'Product Development', 'Strategic Planning'],
       period: '03/2025 - 08/2025',
       description:
@@ -184,22 +184,22 @@ export const AboutMe: React.FC = () => {
     },
     {
       title: 'CHAMPION - Chien Binh Marketing 2024',
-      date: '11/2024',
+      date: '2024',
       icon: Trophy
     },
     {
       title: '2ND RUNNER-UP - Marketing Big Day 2024',
-      date: '11/2024',
+      date: '2024',
       icon: Medal
     },
     {
       title: 'TOP 20 - Chien Binh Marketing 2023',
-      date: '11/2023',
+      date: '2023',
       icon: CircleStar
     },
     {
       title: 'Academic Scholarship - National Economics University',
-      date: '2024',
+      date: '4 times',
       icon: Medal
     }
   ];

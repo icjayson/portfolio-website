@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Linkedin, Send, User, MessageSquare, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, Phone, Linkedin, Send, User, MessageSquare, CheckCircle, AlertCircle, Github } from 'lucide-react';
 import { ButtonFill, GlassPanel, GradientPanel } from '@/components/ui';
 import emailjs from '@emailjs/browser';
 
@@ -206,34 +206,34 @@ export const LetsConnect: React.FC = () => {
             >
               <GlassPanel className="p-8 rounded-2xl">
                 <h3 className="text-2xl font-bold text-black mb-6">Contact Information</h3>
-                <div className="space-y-6">
+                <div className="space-y-2">
                   {/* Phone */}
                   <motion.a
                     href="tel:0904103475"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-black/30 hover:bg-black/50 transition-all duration-300 group"
+                    className="flex items-center gap-4 py-2 px-4 rounded-xl bg-black/30 hover:bg-black/50 transition-all duration-300 group"
                     whileTap={{ scale: 0.98 }}
                   >
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
                       <Phone className="w-5 h-5 text-white" />
                     </div>
                     <div>
                       <p className="text-sm text-gray-200">Phone</p>
-                      <p className="text-white font-semibold">0904103475</p>
+                      <p className="text-white font-semibold max-sm:text-sm">0904103475</p>
                     </div>
                   </motion.a>
 
                   {/* Email */}
                   <motion.a
                     href="mailto:nmquang281.work@gmail.com"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-black/30 hover:bg-black/50 transition-all duration-300 group"
+                    className="flex items-center gap-4 py-2 px-4 rounded-xl bg-black/30 hover:bg-black/50 transition-all duration-300 group"
                     whileTap={{ scale: 0.98 }}
                   >
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
                       <Mail className="w-5 h-5 text-white" />
                     </div>
                     <div>
                       <p className="text-sm text-gray-200">Email</p>
-                      <p className="text-white font-semibold">nmquang281.work@gmail.com</p>
+                      <p className="text-white font-semibold max-sm:text-sm">nmquang281.work@gmail.com</p>
                     </div>
                   </motion.a>
 
@@ -242,15 +242,51 @@ export const LetsConnect: React.FC = () => {
                     href="https://linkedin.com/in/nmquang281"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-black/30 hover:bg-black/50 transition-all duration-300 group"
+                    className="flex items-center gap-4 py-2 px-4 rounded-xl bg-black/30 hover:bg-black/50 transition-all duration-300 group"
                     whileTap={{ scale: 0.98 }}
                   >
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
                       <Linkedin className="w-5 h-5 text-white" />
                     </div>
                     <div>
                       <p className="text-sm text-gray-200">LinkedIn</p>
-                      <p className="text-white font-semibold">linkedin.com/in/nmquang281</p>
+                      <p className="text-white font-semibold max-sm:text-sm">linkedin.com/in/nmquang281</p>
+                    </div>
+                  </motion.a>
+
+                  {/* X */}
+                  <motion.a
+                    href="https://x.com/icjayson"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 py-2 px-4 rounded-xl bg-black/30 hover:bg-black/50 transition-all duration-300 group"
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                      <svg viewBox="0 0 24 24" aria-hidden="true" className="w-4 h-4 text-white" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-200">X</p>
+                      <p className="text-white font-semibold max-sm:text-sm">x.com/icjayson</p>
+                    </div>
+                  </motion.a>
+
+                  {/* Github */}
+                  <motion.a
+                    href="https://github.com/icjayson"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 py-2 px-4 rounded-xl bg-black/30 hover:bg-black/50 transition-all duration-300 group"
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                      <Github className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-200">Github</p>
+                      <p className="text-white font-semibold max-sm:text-sm">github.com/icjayson</p>
                     </div>
                   </motion.a>
                 </div>

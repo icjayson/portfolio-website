@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CardPanel, ButtonOutline, FillPanel, Popup, ProjectCover } from '@/components/ui';
-import { Users, Eye, ThumbsUp, MessageSquare, CircleDollarSign, Handshake, TrendingUp, Target, Zap, FileText, ExternalLink} from 'lucide-react';
+import { Users, Eye, ThumbsUp, MessageSquare, CircleDollarSign, Handshake, TrendingUp, Target, Zap, FileText, ExternalLink } from 'lucide-react';
 import { CopywritingPopup } from './popup/CopywritingPopup';
 
 interface ProjectItem {
@@ -57,7 +57,7 @@ const copywritingProjects: ProjectItem[] = [
     logo: "vincom-logo.webp",
     coverImage: "/copywriting-vincom/1.png",
     href: "#",
-    subtext: "Facebook",
+    subtext: "",
     period: "06/2023 - 08/2023",
     typeBadge: "Facebook",
     nameColor: "text-[#d2242a]",
@@ -73,7 +73,7 @@ const copywritingProjects: ProjectItem[] = [
     logo: "vinfast-logo.png",
     coverImage: "/copywriting-vinfast/1.png",
     href: "#",
-    subtext: "Facebook",
+    subtext: "",
     period: "06/2023 - 07/2023",
     typeBadge: "Facebook",
     nameColor: "text-[#0064fd]",
@@ -89,7 +89,7 @@ const copywritingProjects: ProjectItem[] = [
     logo: "xanhsm-logo.png",
     coverImage: "/copywriting-xanhsm/1.png",
     href: "#",
-    subtext: "Facebook",
+    subtext: "",
     period: "05/2023 - 07/2023",
     typeBadge: "Facebook",
     nameColor: "text-[#22bec0]",
@@ -105,7 +105,7 @@ const copywritingProjects: ProjectItem[] = [
     logo: "phenmarketing-logo.png",
     coverImage: "/copywriting-phenmarketing/1.png",
     href: "#",
-    subtext: "Facebook",
+    subtext: "",
     period: "12/2022 - 05/2023",
     typeBadge: "Facebook",
     nameColor: "text-[#f77a26]",
@@ -117,7 +117,7 @@ const copywritingProjects: ProjectItem[] = [
   }
 ];
 
-const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: ProjectItem) => void; ratio?: '16/9' | '16/7' | '16/5' }> = ({ project, onViewMore, ratio = '16/7' }) => {
+const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: ProjectItem) => void; ratio?: '16/9' | '16/7' | '16/5' | '2/3' | '3/5' }> = ({ project, onViewMore, ratio = '16/7' }) => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case "Users": return <Users className="w-4 h-4" />;
@@ -139,60 +139,58 @@ const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: Projec
       {/* Cover image */}
       <ProjectCover src={project.coverImage} name={project.name} ratio={ratio} />
 
-      {/* Row 1: Logo, Company Name, Subtext, Type Badge and Period */}
+      {/* Row 1: Logo, Company Name, Subtext, Type Badge and Period
+          (stacked below xl: name → period → badge; side-by-side on xl) */}
       <div className="mb-6">
-        <div className="flex items-start gap-3 mb-2">
-          {project.logo ? (
-            <img
-              src={project.logo}
-              alt={`${project.name} logo`}
-              className="w-12 h-12 rounded-full object-cover bg-white flex-shrink-0"
-            />
-          ) : (
-            <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
-              <span className="text-black font-bold text-sm">
-                {project.name.substring(0, 2)}
-              </span>
-            </div>
-          )}
-          <div className="flex-1 min-w-0">
-            {project.href ? (
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`text-xl font-bold hover:opacity-80 transition-colors duration-300 block ${
-                  project.nameColor || 'text-black'
-                }`}
-              >
-                {project.name}
-              </a>
+        <div className="flex flex-col xl:flex-row xl:items-start gap-3 mb-2">
+          <div className="flex items-start gap-3 flex-1 min-w-0">
+            {project.logo ? (
+              <img
+                src={project.logo}
+                alt={`${project.name} logo`}
+                className="w-12 h-12 rounded-full object-cover bg-white flex-shrink-0"
+              />
             ) : (
-              <h3 className={`text-xl font-bold ${
-                project.nameColor || 'text-black'
-              }`}>
-                {project.name}
-              </h3>
-            )}
-            {project.subtext && (
-              <p className="text-sm text-gray-700 mt-1">
-                {project.subtext}
-              </p>
-            )}
-          </div>
-          <div className="space-y-2 text-right flex-shrink-0">
-            <span className={`inline-block px-3 py-1 text-xs rounded-full border whitespace-nowrap ${
-              project.badgeColor || 'bg-primary/20 text-primary border-primary/30'
-            }`}>
-              {project.typeBadge}
-            </span>
-            {project.period && (
-              <div>
-                <span className="text-xs text-gray-700 italic whitespace-nowrap">
-                  {project.period}
+              <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-black font-bold text-sm">
+                  {project.name.substring(0, 2)}
                 </span>
               </div>
             )}
+            <div className="flex-1 min-w-0">
+              {project.href ? (
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`text-xl font-bold hover:opacity-80 transition-colors duration-300 block ${project.nameColor || 'text-black'
+                    }`}
+                >
+                  {project.name}
+                </a>
+              ) : (
+                <h3 className={`text-xl font-bold ${project.nameColor || 'text-black'
+                  }`}>
+                  {project.name}
+                </h3>
+              )}
+              {project.subtext && (
+                <p className="text-sm text-gray-700 mt-1">
+                  {project.subtext}
+                </p>
+              )}
+            </div>
+          </div>
+          <div className="flex flex-col gap-2 flex-shrink-0 xl:items-end xl:text-right">
+            {project.period && (
+              <span className="order-1 xl:order-2 text-xs text-gray-700 italic whitespace-nowrap">
+                {project.period}
+              </span>
+            )}
+            <span className={`order-2 xl:order-1 w-fit px-3 py-1 text-xs rounded-full border whitespace-nowrap ${project.badgeColor || 'bg-primary/20 text-primary border-primary/30'
+              }`}>
+              {project.typeBadge}
+            </span>
           </div>
         </div>
       </div>
@@ -214,17 +212,13 @@ const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: Projec
         </div>
       )}
 
-            {/* Row 3: Results Section */}
+      {/* Row 3: Results Section */}
       {project.results && project.results.length > 0 && (
         <div className="flex-1 flex flex-col justify-center mb-6">
           <h4 className="text-lg font-semibold text-black mb-4 text-center">
             Result
           </h4>
-          <div className={`grid gap-4 ${
-            project.results.length === 5 
-              ? 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-5' 
-              : 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
-          }`}>
+          <div className="grid gap-4 grid-cols-2 xl:grid-cols-3">
             {project.results.map((result, index) => (
               <FillPanel key={index} className="rounded-lg p-3 text-center transition-all duration-300 hover:scale-105">
                 <div className="flex items-center justify-center mb-2 text-white">
@@ -244,7 +238,7 @@ const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: Projec
 
       {/* Row 4: View More Button */}
       <div className="mt-auto flex justify-center">
-        <ButtonOutline 
+        <ButtonOutline
           className="flex items-center justify-center gap-2 px-6 py-2"
           onClick={() => onViewMore(project)}
         >
@@ -292,7 +286,7 @@ export const Copywriting: React.FC = () => {
             whileHover={{ y: -6 }}
             transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
           >
-            <ProjectCard project={project} onViewMore={openPopup} ratio="16/9" />
+            <ProjectCard project={project} onViewMore={openPopup} ratio={project.name === 'Vincom' ? '3/5' : '16/9'} />
           </motion.div>
         ))}
       </div>

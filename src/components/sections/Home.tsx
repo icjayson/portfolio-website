@@ -61,7 +61,7 @@ export const Home: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-transparent">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-transparent pt-28 lg:pt-0">
       <div className="max-w-[1400px] mx-auto px-8 relative z-10">
         <div className="grid lg:grid-cols-4 gap-16 items-center">
           {/* Left Content */}

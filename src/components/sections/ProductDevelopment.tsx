@@ -14,6 +14,8 @@ interface ProjectItem {
   href?: string;
   period?: string;
   subtext?: string;
+  context?: string;
+  objective?: string;
   typeBadge: string | string[];
   achievementBadge?: string;
   nameColor?: string;
@@ -30,7 +32,9 @@ const productDevelopmentProjects: ProjectItem[] = [
     coverImage: "/product-dreamify/0.png",
     href: "https://dreamify.dev",
     period: "09/2025 - Present",
-    subtext: "(AI reporting analyst for online sellers and agencies)",
+    subtext: "(My personal start-up)",
+    context: "An always-on AI reporting analyst for online sellers and agencies, who have no data team, and integrated into their team's workspace",
+    objective: "Take it from 0 → MVP and validate the core value with real users.",
     typeBadge: ["PRD & User Flow", "MVP Development"],
     nameColor: "text-[#1E40AF]",
     badgeColor: ["bg-[#1E40AF]/20 text-[#1E40AF] border-[#1E40AF]/30", "bg-[#1E40AF]/20 text-[#1E40AF] border-[#1E40AF]/30"],
@@ -41,7 +45,7 @@ const productDevelopmentProjects: ProjectItem[] = [
       ],
       [
         "Vibe-coded the frontend with Vite and backend with FastAPI to quickly validate the product concept and user experience",
-        "Reached 700+ visitors, 11K+ page views, 90 NRUs, ~1,000 conversations and ~28M LLM tokens processed after 1-month launch",
+        "Organically reached 700+ visitors, 11K+ page views, 90 NRUs, ~1,000 conversations and ~28M LLM tokens processed after 1-month launch",
       ]
     ]
   },
@@ -50,9 +54,11 @@ const productDevelopmentProjects: ProjectItem[] = [
     name: "XUONG KY UC",
     logo: "/xuongkyuc-logo.png",
     coverImage: "/product-xuongkyuc/0.png",
-    href: "https://xuongkyuc.com",
+    href: "https://xuong-ky-uc.vercel.app/",
     period: "03/2025 - 08/2025",
     subtext: "(My personal start-up)",
+    context: "An NFC-enabled personalized gifting startup with interactive love websites.",
+    objective: "Build the product end-to-end and ship a deployed, emotional web experience.",
     typeBadge: ["End-to-End Product", "Full Web App Development"],
     nameColor: "text-[#CEA19E]",
     badgeColor: ["bg-[#CEA19E]/20 text-[#CEA19E] border-[#CEA19E]/30", "bg-[#CEA19E]/20 text-[#CEA19E] border-[#CEA19E]/30"],
@@ -75,6 +81,8 @@ const productDevelopmentProjects: ProjectItem[] = [
     href: "#",
     period: "01/2025 - 02/2025",
     subtext: "",
+    context: "A blockchain-integrated Social AI Agent concept on the TON ecosystem.",
+    objective: "Define the product features and user flow from market research.",
     typeBadge: "User Flow",
     nameColor: "text-[#0064FD]",
     badgeColor: "bg-[#0064FD]/20 text-[#0064FD] border-[#0064FD]/30",
@@ -89,8 +97,10 @@ const productDevelopmentProjects: ProjectItem[] = [
     logo: "kisshu-logo.png",
     coverImage: "/product-kisshu/0.png",
     href: "#",
-    period: "04/2025 - 05/2025",
+    period: "05/2025",
     subtext: "(A brand of Bao Ngoc)",
+    context: "A launch-campaign landing page for Kisshu candy, a brand of Bao Ngoc.",
+    objective: "Design and ship a fast, responsive landing page for the product launch.",
     typeBadge: ["UI Design", "Frontend Development"],
     nameColor: "text-[#ED1A25]",
     badgeColor: ["bg-[#ED1A25]/20 text-[#ED1A25] border-[#ED1A25]/30", "bg-[#ED1A25]/20 text-[#ED1A25] border-[#ED1A25]/30"],
@@ -111,6 +121,8 @@ const productDevelopmentProjects: ProjectItem[] = [
     href: "#",
     period: "05/2025",
     subtext: "",
+    context: "An underperforming castella product after multiple R&D rounds.",
+    objective: "Run consumer research to guide product and packaging improvement.",
     typeBadge: "Product Research",
     nameColor: "text-[#8F0B0B]",
     badgeColor: "bg-[#8F0B0B]/20 text-black/70 border-[#8F0B0B]/30",
@@ -127,44 +139,47 @@ const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: Projec
       {/* Cover image */}
       <ProjectCover src={project.coverImage} name={project.name} ratio={ratio} />
 
-      {/* Row 1: Logo, Company Name, Subtext and Period */}
+      {/* Row 1: Logo, Company Name, Subtext and Period
+          (period drops below the name block below xl) */}
       <div className="mb-4">
-        <div className="flex items-start gap-3">
-          {project.logo ? (
-            <img
-              src={project.logo}
-              alt={`${project.name} logo`}
-              className="w-12 h-12 rounded-full object-contain bg-white flex-shrink-0"
-            />
-          ) : (
-            <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
-              <span className="text-black font-bold text-sm">
-                {project.name.substring(0, 2)}
-              </span>
-            </div>
-          )}
-          <div className="flex-1 min-w-0">
-            {project.href ? (
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`text-xl font-bold hover:opacity-80 transition-colors duration-300 block ${project.nameColor || 'text-black'
-                  }`}
-              >
-                {project.name}
-              </a>
+        <div className="flex flex-col xl:flex-row xl:items-start gap-2 xl:gap-3">
+          <div className="flex items-start gap-3 flex-1 min-w-0">
+            {project.logo ? (
+              <img
+                src={project.logo}
+                alt={`${project.name} logo`}
+                className="w-12 h-12 rounded-full object-contain bg-white flex-shrink-0"
+              />
             ) : (
-              <h3 className={`text-xl font-bold ${project.nameColor || 'text-black'
-                }`}>
-                {project.name}
-              </h3>
+              <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-black font-bold text-sm">
+                  {project.name.substring(0, 2)}
+                </span>
+              </div>
             )}
-            {project.subtext && (
-              <p className="text-sm text-gray-700 mt-1">
-                {project.subtext}
-              </p>
-            )}
+            <div className="flex-1 min-w-0">
+              {project.href ? (
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`text-xl font-bold hover:opacity-80 transition-colors duration-300 block ${project.nameColor || 'text-black'
+                    }`}
+                >
+                  {project.name}
+                </a>
+              ) : (
+                <h3 className={`text-xl font-bold ${project.nameColor || 'text-black'
+                  }`}>
+                  {project.name}
+                </h3>
+              )}
+              {project.subtext && (
+                <p className="text-sm text-gray-700 mt-1">
+                  {project.subtext}
+                </p>
+              )}
+            </div>
           </div>
           {project.period && (
             <span className="text-sm text-gray-700 italic whitespace-nowrap flex-shrink-0">
@@ -174,81 +189,35 @@ const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: Projec
         </div>
       </div>
 
-      {/* Row 2 & 3: Type Badges and Contributions */}
-      <div className="flex-1 mb-3">
-        {Array.isArray(project.typeBadge) && Array.isArray(project.contributions[0]) ? (
-          // 2-column layout: each column has typeBadge + contribution section
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {(project.typeBadge as string[]).map((badge, colIndex) => (
-              <div key={colIndex} className="space-y-3">
-                {/* Type Badge */}
-                <div>
-                  <span className={`px-3 py-1 text-xs rounded-full border ${Array.isArray(project.badgeColor)
-                    ? (project.badgeColor[colIndex] || 'bg-secondary text-white border-secondary')
-                    : (project.badgeColor || 'bg-secondary text-white border-secondary')
-                    }`}>
-                    {badge}
-                  </span>
-                </div>
-                {/* Contributions */}
-                {(project.contributions as string[][])[colIndex] && (
-                  <div>
-                    <ul className="space-y-1">
-                      {(project.contributions as string[][])[colIndex].map((contribution, index) => (
-                        <li key={index} className="text-black text-sm flex items-start gap-2">
-                          <span className="text-primary mt-1 flex-shrink-0">•</span>
-                          <span>{contribution}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        ) : Array.isArray(project.typeBadge) ? (
-          // Multiple badges but single contribution section
-          <div>
-            <div className="flex flex-wrap gap-2 mb-4">
-              {(project.typeBadge as string[]).map((badge, index) => (
-                <span key={index} className={`px-3 py-1 text-xs rounded-full border ${Array.isArray(project.badgeColor)
-                  ? (project.badgeColor[index] || 'bg-secondary text-white border-secondary')
-                  : (project.badgeColor || 'bg-secondary text-white border-secondary')
-                  }`}>
-                  {badge}
-                </span>
-              ))}
-            </div>
-            <ul className="space-y-1">
-              {(project.contributions as string[]).map((contribution, index) => (
-                <li key={index} className="text-black text-sm flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
-                  <span>{contribution}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : (
-          // Single badge and single contribution section
-          <div>
-            <div className="mb-4">
-              <span className={`px-3 py-1 text-xs rounded-full border ${Array.isArray(project.badgeColor)
-                ? (project.badgeColor[0] || 'bg-secondary text-white border-secondary')
-                : (project.badgeColor || 'bg-secondary text-white border-secondary')
-                }`}>
-                {project.typeBadge as string}
-              </span>
-            </div>
-            <ul className="space-y-1">
-              {(project.contributions as string[]).map((contribution, index) => (
-                <li key={index} className="text-black text-sm flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
-                  <span>{contribution}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+      {/* Row 2: Scope badges + Context / Objective (clean glance; full detail in popup) */}
+      <div className="flex-1 mb-3 space-y-4">
+        {/* Scope badges */}
+        <div className="flex flex-wrap gap-2">
+          {(Array.isArray(project.typeBadge) ? project.typeBadge : [project.typeBadge]).map((badge, index) => (
+            <span key={index} className={`px-3 py-1 text-xs rounded-full border ${Array.isArray(project.badgeColor)
+              ? (project.badgeColor[index] || 'bg-secondary text-white border-secondary')
+              : (project.badgeColor || 'bg-secondary text-white border-secondary')
+              }`}>
+              {badge}
+            </span>
+          ))}
+        </div>
+
+        {/* Context → Objective micro-lines */}
+        <div className="space-y-2 text-sm leading-relaxed">
+          {project.context && (
+            <p className="text-gray-700">
+              <span className="font-semibold text-black">Context: </span>
+              {project.context}
+            </p>
+          )}
+          {project.objective && (
+            <p className="text-gray-700">
+              <span className="font-semibold text-black">Objective: </span>
+              {project.objective}
+            </p>
+          )}
+        </div>
       </div>
 
       {/* Row 4: View More Button */}

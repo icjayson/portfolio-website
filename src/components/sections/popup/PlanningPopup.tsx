@@ -164,14 +164,14 @@ export const PlanningPopup: React.FC<PlanningPopupProps> = ({ project }) => {
         <h4 className="text-sm font-semibold text-black mb-3">
           Showcase of my work:
         </h4>
-        <div className={`grid gap-4 ${
+        <div className={`grid gap-4 grid-cols-1 ${
           project.name === 'LAONMEDI' || project.name === 'SUKI'
-            ? 'grid-cols-2 grid-rows-4'
+            ? 'md:grid-cols-2'
             : project.name === 'KISSHU' || project.id === 25
-            ? 'grid-cols-2 grid-rows-3'
+            ? 'md:grid-cols-2'
             :project.name ==='Dong Luc Sport'|| project.name === 'Vincom' || project.id === 24
-            ? 'grid-cols-2 grid-rows-2'
-            : 'grid-cols-3 grid-rows-1'
+            ? 'md:grid-cols-2'
+            : 'md:grid-cols-3'
         }`}>
           {project.id === 24 && [
             "/planning-googlehackathon/4.png",

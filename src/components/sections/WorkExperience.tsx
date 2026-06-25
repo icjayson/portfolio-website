@@ -27,16 +27,16 @@ export const WorkExperience: React.FC = () => {
       component: ProductDevelopment
     },
     {
+      id: 'performance',
+      name: 'User Acquisition',
+      icon: BarChart3,
+      component: Performance
+    },
+    {
       id: 'planning',
       name: 'Planning',
       icon: Target,
       component: Planning
-    },
-    {
-      id: 'performance',
-      name: 'Performance',
-      icon: BarChart3,
-      component: Performance
     },
     {
       id: 'copywriting',

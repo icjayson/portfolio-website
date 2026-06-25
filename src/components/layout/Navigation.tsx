@@ -127,12 +127,12 @@ export const Navigation: React.FC = () => {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -8 }}
                           transition={{ duration: 0.15 }}
-                          className="absolute left-0 mt-2 w-64 bg-white/15 backdrop-blur-lg border border-white/20 rounded-xl shadow-lg z-[60] p-2"
+                          className="absolute left-0 mt-2 w-64 card-panel rounded-xl shadow-lg z-[60] p-2"
                           role="menu"
                         >
                           <button className="block w-full text-left px-4 py-2 rounded-xl text-black hover:bg-black/10 hover:text-primary transition-colors" onClick={() => handleNavToExperienceTab('product-development')}>Product Development</button>
+                          <button className="block w-full text-left px-4 py-2 rounded-xl text-black hover:bg-black/10 hover:text-primary transition-colors" onClick={() => handleNavToExperienceTab('performance')}>User Acquisition</button>
                           <button className="block w-full text-left px-4 py-2 rounded-xl text-black hover:bg-black/10 hover:text-primary transition-colors" onClick={() => handleNavToExperienceTab('planning')}>Planning</button>
-                          <button className="block w-full text-left px-4 py-2 rounded-xl text-black hover:bg-black/10 hover:text-primary transition-colors" onClick={() => handleNavToExperienceTab('performance')}>Performance</button>
                           <button className="block w-full text-left px-4 py-2 rounded-xl text-black hover:bg-black/10 hover:text-primary transition-colors" onClick={() => handleNavToExperienceTab('copywriting')}>Copywriting</button>
                         </motion.div>
                       )}
@@ -229,8 +229,8 @@ export const Navigation: React.FC = () => {
                             className="pl-2 space-y-2"
                           >
                             <button className="block w-full text-left text-base font-medium text-black hover:text-primary transition-colors py-2" onClick={() => handleNavToExperienceTab('product-development')}>Product Development</button>
+                            <button className="block w-full text-left text-base font-medium text-black hover:text-primary transition-colors py-2" onClick={() => handleNavToExperienceTab('performance')}>User Acquisition</button>
                             <button className="block w-full text-left text-base font-medium text-black hover:text-primary transition-colors py-2" onClick={() => handleNavToExperienceTab('planning')}>Planning</button>
-                            <button className="block w-full text-left text-base font-medium text-black hover:text-primary transition-colors py-2" onClick={() => handleNavToExperienceTab('performance')}>Performance</button>
                             <button className="block w-full text-left text-base font-medium text-black hover:text-primary transition-colors py-2" onClick={() => handleNavToExperienceTab('copywriting')}>Copywriting</button>
                           </motion.div>
                         )}
