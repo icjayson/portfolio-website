@@ -157,7 +157,7 @@ export const Home: React.FC = () => {
                 {/* Card content with image */}
                 <div className="w-full h-full rounded-2xl overflow-hidden">
                   <img
-                    src="/home-section.png"
+                    src="/home-section.jpg"
                     alt="Portfolio image"
                     className="w-full h-full object-cover"
                   />
