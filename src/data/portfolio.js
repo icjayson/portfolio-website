@@ -170,7 +170,7 @@ export const experienceData = [
     period: '03/2025 - 05/2025'
   },
   {
-    role: 'Product Marketing Intern',
+    role: 'Product Marketing',
     company: 'Bao Ngoc',
     skills: ['Product Development', 'IMC Plan'],
     period: '03/2025 - 07/2025'

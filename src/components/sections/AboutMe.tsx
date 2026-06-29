@@ -45,30 +45,31 @@ export const AboutMe: React.FC = () => {
   // Experience timeline data
   const timelineData: TimelineItem[] = [
     {
-      role: 'Marketing Collaborator',
+      role: 'Growth Marketing Collaborator',
       company: 'Zalo Games (Zalo)',
-      skills: ['Market Research', 'Strategic Planning', 'User Acquisition', 'Data Analytics'],
+      skills: ['Product Research', 'Strategic Planning', 'User Acquisition', 'Data Analytics'],
       period: '12/2025 - Present',
       description:
-        ['Owned marketing execution from game research, brand guideline and launch plan to daily UA setup, data tracking and optimization',
-          'Managed internal and external UA channels, monitoring KPIs including CPI, CTR, NRU, PU, PR, RR and revenue',
-          'Prepared daily data reports, identified funnel bottlenecks and proposed post-release optimization actions'],
+        ['Drove user growth by owning the end-to-end funnel to acquire, retain, and reactivate users across all lifecycle stages',
+          'Analyzed user behavior, campaign performance, and commercial metrics (CPI, CTR, NRU, PR, RR, revenue) to identify drop-off points and continuously optimize the growth funnel across activation, retention, and monetization',
+          'Built multi-channel content and growth assets (in-app placements, UA campaigns and communities) aligned with user lifecycle stages, focusing on retention, repeat paying and habit formation',
+          'Translated behavioral data and funnel analysis into actionable recommendations for the Product team to optimize in-app and out-app user flows'],
       milestones: {
         label: 'Key achievements',
         items:
-          ['Game “Ma Kiếm”: **470K+ NRU** and **2.5B+ VND** revenue in the 1st month; reached **26K+ DAU** and **6.7B+ VND** revenue after 3 months',
+          ['Game “Ma Kiếm”: **470K+ NRU** and **2.7B+ VND** revenue in the 1st month; reached **26K+ DAU** and **6.7B+ VND** revenue after 3 months',
             'Game “ZA War: Survival VN”: **880K+ NRU** and **1.8B+ VND** revenue in the 1st month']
       }
     },
     {
-      role: 'Product Marketing Intern',
+      role: 'Product Marketing',
       company: 'Bao Ngoc',
-      skills: ['Product Research', 'Product Development'],
+      skills: ['Product Research', 'Product Development', 'Strategic Planning'],
       period: '03/2025 - 07/2025',
       description:
-        ['Conducted pre- and post-launch product research to identify insights on flavor, packaging and customer perception',
+        ['Conducted pre- and post-launch user research to identify actionable insights on flavor, packaging, and customer perception',
           'Developed IMC plan, key messages and key visuals for new product launch (Kisshu Candy)',
-          'Designed UI and built a launching landing page using Next.js and Vercel hosting']
+          'Designed and built the product-launch landing page (Next.js, Vercel), owning UI/UX through to deployment']
     },
     {
       role: 'Marketing Associate',
@@ -77,9 +78,9 @@ export const AboutMe: React.FC = () => {
       skills: ['Strategic Planning', 'SEO', 'Copywriting'],
       period: '03/2025 - 05/2025',
       description:
-        ['Built overall marketing plan and cross-functional coordination workflow between tech and marketing team',
-          'Conducted SEO keyword research, on-page optimization and content strategy',
-          'Designed UI for the website “Blog” module to improve content operation']
+        ['Built and executed marketing plans aligned with the product roadmap to boost brand awareness in the B2B market',
+          'Conducted SEO via keyword research and on-page optimization to capture high-intent organic traffic',
+          'Designed the website’s “Blog” module UI/UX to streamline content operations and support organic growth']
     },
     {
       role: 'Growth Marketing Executive',
@@ -88,9 +89,9 @@ export const AboutMe: React.FC = () => {
       skills: ['Strategic Planning', 'Performance', 'Product Development'],
       period: '03/2024 - 02/2025',
       description:
-        ['Researched DeFAI trends and designed product features/user flow for a Social AI Agent concept',
-          'Developed content strategy, tracked market trends and created daily content on X to drive reach and follower growth',
-          'Proposed growth strategies for TON Community in Vietnam'],
+        ['Conducted DeFAI market and competitive research to define product features and user flows for the Social AI Agent concept',
+          'Planned and executed content strategies on social media to drive reach and audience growth',
+          'Spearheaded and scaled high-impact partnerships to expand brand footprint, accelerate audience growth, and drive scalable revenue streams'],
       milestones: {
         label: 'Key achievements in 7 months',
         items:
@@ -124,14 +125,13 @@ export const AboutMe: React.FC = () => {
       skills: ['Performance', 'Copywriting'],
       period: '11/2022 - 06/2023',
       description:
-        ['Designed and created informative, trendy Facebook posts',
-          'Managed Facebook Ads tools to drive lead generation',
-          'Built IMC plans and organized online webinars and mock classes.'],
+        ['Built IMC plans, executed Facebook content strategy and paid social posts to support lead generation for “Phèn Marketing”',
+          'Set up and optimized Facebook ad campaigns, leveraging A/B testing across creatives and audience cohorts to optimize CTR, CPL and message-to-lead performance'],
       milestones: {
         label: 'Key achievements',
         items:
-          ['Achieved **~60,000 VND** average CPL and **~3.7%** average CTR',
-            'Facebook Ads posts reached **2,500–6,000 views** and **300–500 engagements** each']
+          ['Achieved **~50,000 VND** average CPL and **~3.7%** average CTR',
+            'Contributed to **50M VND** monthly revenue through Facebook Ads']
       }
     }
   ];
@@ -146,9 +146,11 @@ export const AboutMe: React.FC = () => {
       skills: ['Product Research', 'Product Development', 'User Acquisition'],
       period: '09/2025 - Present',
       description:
-        ['Co-built an AI reporting analyst from 0 to MVP, owning product requirement docs, wireframe, user flow, GTM strategy and financial model',
+        ['Conducted market research, competitor analysis and user interviews to uncover user needs, identify market gaps, and define pilot direction and retention hypotheses',
+          'Shaped product positioning, defined MVP scope, and delivered the go-to-market plan that fuels user acquisition and retention',
+          'Co-built an AI product from 0 to MVP, owning product requirement docs, wireframe, user flow and financial model',
           'Vibe-coded the frontend with Vite and backend with FastAPI to quickly validate the product concept and user experience',
-          'Conducted market research and user interviews to define pilot direction and retention hypotheses'],
+          'Translated user feedback into actionable product insights, confirming the core “aha moment”'],
       milestones: {
         label: 'Key milestones after 1-month launch',
         items:
@@ -164,9 +166,9 @@ export const AboutMe: React.FC = () => {
       skills: ['Product Research', 'Product Development', 'Strategic Planning'],
       period: '03/2025 - 08/2025',
       description:
-        ['Handled end-to-end product development, from product concept, user flow and UI/UX design to full web app development and deployment',
-          'Built the web app using Next.js, Supabase database, EVG S3 and Vercel hosting',
-          'Developed core brand assets including brand guideline, growth strategy and pricing strategy']
+        ['Owned end-to-end product development, from product concept, user flow and UI/UX design to full web app build and deployment',
+          'Built and shipped the web app (Next.js, Supabase, EVG S3, Vercel), prototyping and iterating rapidly',
+          'Defined core brand assets and product strategy including brand guideline, growth strategy and pricing strategy']
     }
   ];
 
@@ -178,7 +180,7 @@ export const AboutMe: React.FC = () => {
       icon: Trophy
     },
     {
-      title: 'TOP 20 - Vietnam AI Stars 2026',
+      title: 'SEMI-FINALIST - Vietnam AI Stars 2026',
       date: '2026',
       icon: CircleStar
     },

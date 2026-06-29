@@ -157,9 +157,9 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
             </h4>
             <ul className="space-y-1">
               {[
-                'Owned marketing execution from game research, brand guideline and launch plan to daily UA setup, data tracking and optimization',
-                'Managed internal and external UA channels, monitoring KPIs including CPI, CTR, NRU, PU, PR, RR and revenue',
-                'Prepared daily data reports, identified funnel bottlenecks and proposed post-release optimization actions'
+                'Drove user growth by owning the end-to-end UA funnel to acquire, retain and reactivate users across lifecycle stages',
+                'Analyzed user behavior, campaign performance and commercial metrics (CPI, CTR, NRU, PR, RR, revenue) to identify drop-off points and optimize the growth funnel',
+                'Built multi-channel content and growth assets (in-app placements, UA campaigns, communities) focusing on retention, repeat paying and habit formation'
               ].map((item, index) => (
                 <li key={index} className="text-gray-700 text-sm flex items-start gap-2">
                   <span className="text-primary mt-1">•</span>
@@ -182,7 +182,7 @@ export const PerformancePopup: React.FC<PerformancePopupProps> = ({ project }) =
                   description: 'Game data overview in the first month',
                   metrics: [
                     { label: 'NRU (M1)', value: '470K+' },
-                    { label: 'Revenue (M1)', value: '2.5B+ VND' },
+                    { label: 'Revenue (M1)', value: '2.7B+ VND' },
                     { label: 'DAU (3mo)', value: '26K+' },
                     { label: 'Revenue (3mo)', value: '6.7B+ VND' }
                   ]

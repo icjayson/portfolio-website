@@ -45,7 +45,7 @@ const planningProjects: ProjectItem[] = [
     coverImage: "/planning-vas/2.png",
     href: "https://dreamify.dev",
     typeBadge: "Fundraising Pitchdeck",
-    achievementBadge: "TOP 20",
+    achievementBadge: "Semi-Finalist",
     achievementEvent: "Vietnam AI Stars 2026",
     nameColor: "text-[#1E40AF]",
     badgeColor: "bg-[#1E40AF]/20 text-[#1E40AF] border-[#1E40AF]/30",
@@ -201,11 +201,11 @@ const ProjectCard: React.FC<{ project: ProjectItem; onViewMore: (project: Projec
       {project.achievementBadge && (
         <div className="mb-4">
           <span className="flex w-full flex-col items-center text-center bg-primary/20 text-primary px-4 py-2 rounded-2xl">
-            <span className="text-sm font-bold uppercase tracking-wide">
+            <span className="text-md font-bold uppercase tracking-wide">
               {project.achievementBadge}
             </span>
             {project.achievementEvent && (
-              <span className="text-xs text-primary/80">
+              <span className="text-sm text-primary/80">
                 {project.achievementEvent}
               </span>
             )}

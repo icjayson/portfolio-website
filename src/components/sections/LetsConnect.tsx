@@ -179,7 +179,7 @@ export const LetsConnect: React.FC = () => {
         {/* 2-Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Column 1: Stacked vertical with 2 cards */}
-          <div className="space-y-8">
+          <div className="space-y-4">
             {/* Motivation Card */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -300,8 +300,9 @@ export const LetsConnect: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
+            className="h-full"
           >
-            <GlassPanel className="p-8 rounded-2xl">
+            <GlassPanel className="p-8 rounded-2xl h-full flex flex-col">
               <h3 className="text-2xl font-bold text-black mb-8 text-center">Get in Touch</h3>
 
               {formState.isSuccess ? (
@@ -324,7 +325,7 @@ export const LetsConnect: React.FC = () => {
                   <p className="text-black">Thank you for reaching out. I&#39;ll get back to you soon.</p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col">
+                <form onSubmit={handleSubmit} className="flex flex-col flex-1">
                   {formState.errors.general && (
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
@@ -337,7 +338,7 @@ export const LetsConnect: React.FC = () => {
                       </p>
                     </motion.div>
                   )}
-                  <div className="space-y-6">
+                  <div className="space-y-6 flex-1 flex flex-col">
                     {/* Full Name Field */}
                     <div className="relative">
                       <div className="relative">
@@ -419,8 +420,8 @@ export const LetsConnect: React.FC = () => {
                     </div>
 
                     {/* Project Details Field */}
-                    <div className="relative">
-                      <div className="relative">
+                    <div className="relative flex-1 flex flex-col">
+                      <div className="relative flex-1">
                         <textarea
                           id="projectDetails"
                           name="projectDetails"
@@ -430,7 +431,7 @@ export const LetsConnect: React.FC = () => {
                           onBlur={() => handleBlur('projectDetails')}
                           rows={5}
                           maxLength={maxCharacters}
-                          className={`w-full px-4 pt-6 pb-2 bg-white/10 border rounded-lg text-black placeholder-transparent focus:outline-none resize-none transition-all duration-300 ${formState.errors.projectDetails
+                          className={`w-full h-full px-4 pt-6 pb-2 bg-white/10 border rounded-lg text-black placeholder-transparent focus:outline-none resize-none transition-all duration-300 ${formState.errors.projectDetails
                             ? 'border-red-500 focus:ring-2 focus:ring-red-500'
                             : 'border-black/10 focus:ring-2 focus:ring-primary focus:border-transparent'
                             }`}

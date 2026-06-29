@@ -47,8 +47,8 @@ const copywritingProjects: ProjectItem[] = [
       { label: "Total Impressions", value: "10,000,000+", icon: "Eye" }
     ],
     contributions: [
-      "Develop content strategy, track market trends and create daily content on X to drive reach and follower growth",
-      "Reach and collaborate with projects within TON Ecosystem through promotional service packages"
+      "Planned and executed content strategies on X, tracking market trends and creating daily content to drive reach and follower growth",
+      "Spearheaded and scaled high-impact partnerships with projects across the TON ecosystem through promotional service packages"
     ]
   },
   {

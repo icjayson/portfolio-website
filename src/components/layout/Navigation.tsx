@@ -127,7 +127,8 @@ export const Navigation: React.FC = () => {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -8 }}
                           transition={{ duration: 0.15 }}
-                          className="absolute left-0 mt-2 w-64 card-panel rounded-xl shadow-lg z-[60] p-2"
+                          style={{ position: 'absolute' }}
+                          className="absolute left-0 top-full mt-2 w-64 popup-panel rounded-xl shadow-lg z-[60] p-2"
                           role="menu"
                         >
                           <button className="block w-full text-left px-4 py-2 rounded-xl text-black hover:bg-black/10 hover:text-primary transition-colors" onClick={() => handleNavToExperienceTab('product-development')}>Product Development</button>

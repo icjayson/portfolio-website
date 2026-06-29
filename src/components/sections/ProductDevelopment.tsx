@@ -41,7 +41,7 @@ const productDevelopmentProjects: ProjectItem[] = [
     contributions: [
       [
         "Co-built an AI product from 0 to MVP, owning product requirement docs, wireframe, user flow, GTM strategy and financial model",
-        "Conducted market research and user interviews to define pilot direction and retention hypotheses",
+        "Conducted market research, competitor analysis and user interviews to uncover user needs, market gaps and retention hypotheses",
       ],
       [
         "Vibe-coded the frontend with Vite and backend with FastAPI to quickly validate the product concept and user experience",
@@ -64,11 +64,11 @@ const productDevelopmentProjects: ProjectItem[] = [
     badgeColor: ["bg-[#CEA19E]/20 text-[#CEA19E] border-[#CEA19E]/30", "bg-[#CEA19E]/20 text-[#CEA19E] border-[#CEA19E]/30"],
     contributions: [
       [
-        "Handled end-to-end product development, from product concept, user flow and UI/UX design to full web app development and deployment",
-        "Developed core brand assets including brand guideline, growth strategy and pricing strategy",
+        "Owned end-to-end product development, from product concept, user flow and UI/UX design to full web app build and deployment",
+        "Defined core brand assets and product strategy including brand guideline, growth strategy and pricing strategy",
       ],
       [
-        "Built the web app using Next.js, Supabase database, EVG S3 and Vercel hosting",
+        "Built and shipped the web app (Next.js, Supabase, EVG S3, Vercel), prototyping and iterating rapidly",
         "Designed the user flow and UI/UX for xuongkyuc.com, focusing on personalization, interaction and emotional value",
       ]
     ]
@@ -87,8 +87,8 @@ const productDevelopmentProjects: ProjectItem[] = [
     nameColor: "text-[#0064FD]",
     badgeColor: "bg-[#0064FD]/20 text-[#0064FD] border-[#0064FD]/30",
     contributions: [
-      "Conduct market research on blockchain-integrated AI agents",
-      "Design user flow including schema mapping between user input and agent functions",
+      "Conducted DeFAI market and competitive research to define product features and user flows for the concept",
+      "Designed the user flow, including schema mapping between user input and agent functions",
     ]
   },
   {
@@ -106,10 +106,10 @@ const productDevelopmentProjects: ProjectItem[] = [
     badgeColor: ["bg-[#ED1A25]/20 text-[#ED1A25] border-[#ED1A25]/30", "bg-[#ED1A25]/20 text-[#ED1A25] border-[#ED1A25]/30"],
     contributions: [
       [
-        "Design wireframe for a launching campaign landing page on Figma",
+        "Designed the wireframe and UI for the launch-campaign landing page in Figma",
       ],
       [
-        "Build and deploy landing page using Next.js and Vercel hosting, ensuring fast rollout and responsiveness",
+        "Built and deployed the landing page (Next.js, Vercel), owning UI/UX through to deployment with fast rollout and responsiveness",
       ]
     ]
   },
@@ -127,8 +127,8 @@ const productDevelopmentProjects: ProjectItem[] = [
     nameColor: "text-[#8F0B0B]",
     badgeColor: "bg-[#8F0B0B]/20 text-black/70 border-[#8F0B0B]/30",
     contributions: [
-      "Design and execute a consumer research survey on Bao Ngoc Castella",
-      "Analyze quantitative and qualitative data to extract insights on flavor and packaging and  delivered a data-driven report",
+      "Designed and executed pre- and post-launch user research on Bao Ngoc Castella",
+      "Analyzed quantitative and qualitative data to identify actionable insights on flavor and packaging, and delivered a data-driven report",
     ]
   }
 ];

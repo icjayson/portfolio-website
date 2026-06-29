@@ -102,9 +102,9 @@ const performanceProjects: ProjectItem[] = [
     results: [
     ],
     contributions: [
-      "Conduct keyword research, on-page SEO optimization and content planning for 5 core products: CDN, S3 Storage, Security, Cloud Server, and Streaming",
-      "Design UI for 'Blog' module on website",
-      "Manage CMS for streamlined content updates"
+      "Conducted SEO via keyword research, on-page optimization and content planning for 5 core products (CDN, S3 Storage, Security, Cloud Server, Streaming) to capture high-intent organic traffic",
+      "Designed the website's Blog module UI/UX to streamline content operations and support organic growth",
+      "Managed the CMS for streamlined content updates"
     ]
   }
 ];
