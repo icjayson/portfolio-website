@@ -144,7 +144,7 @@ export const AboutMe: React.FC = () => {
       companyDomain: 'dreamify.dev',
       companyUrl: 'https://dreamify.dev',
       skills: ['Product Research', 'Product Development', 'User Acquisition'],
-      period: '09/2025 - Present',
+      period: '10/2025 - Present',
       description:
         ['Conducted market research, competitor analysis and user interviews to uncover user needs, identify market gaps, and define pilot direction and retention hypotheses',
           'Shaped product positioning, defined MVP scope, and delivered the go-to-market plan that fuels user acquisition and retention',
