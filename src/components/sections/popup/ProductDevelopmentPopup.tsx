@@ -186,6 +186,8 @@ export const ProductDevelopmentPopup: React.FC<ProductDevelopmentPopupProps> = (
                     { src: "/product-dreamify/4.png", caption: "Workspace Integration Interface" },
                     { src: "/product-dreamify/3.jpg", caption: "Data Connector Feature" },
                     { src: "/product-dreamify/2.png", caption: "Fundraising pitch deck" },
+                    { src: "/product-dreamify/5.png", caption: "Web traffic analytics dashboard" },
+                    { src: "/product-dreamify/6.png", caption: "Product usage analytics dashboard" },
                   ].map((item, index) => (
                     <div key={index} className="w-full rounded-lg overflow-hidden">
                       <p className="text-xs text-gray-600 text-center mb-2">{item.caption}</p>
